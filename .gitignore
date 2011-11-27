@@ -6,3 +6,7 @@ tmp/
 srs/*.aux
 srs/*.log
 srs/*.toc
+srs/*.out
+srs/*.backup
+srs/*~
+srs/srs*.png

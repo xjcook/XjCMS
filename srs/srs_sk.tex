@@ -2,8 +2,7 @@
 \usepackage[slovak]{babel}
 \usepackage[IL2]{fontenc}
 \usepackage[utf8]{inputenc}
-%\usepackage[pdftex,bookmarks=true]{hyperref}
-\usepackage{url}
+\usepackage[pdftex]{hyperref}
 \usepackage{fullpage}
 \usepackage{graphicx}
 
@@ -11,10 +10,22 @@
 \author{Ondrej Danko}
 \date{\today}
 
+\hypersetup{
+  unicode=true,
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=blue,
+  pdftitle={Špecifikácia ročníkového projektu pre Redakčný systém},
+  pdfauthor={Ondrej Danko},
+  pdfsubject={Redakčný systém (CMS)},
+  pdfkeywords={cms}
+}
+
 \begin{document}
 
 \maketitle
 
+\setcounter{tocdepth}{2}
 \tableofcontents
 \thispagestyle{empty}
 
@@ -162,7 +173,7 @@ Tento modul je úplným základom celého CMS. Poskytuje tú najzákladnejšiu f
 \subsubsection{Spôsob prístupu}
 Ku stránkam sa bude pristupovať cez \url{domena/page/<nazov_stranky>}.
 Na stránku bude môcť prísť návštevník z odkazu v menu alebo z vyhľadávacieho mechanizmu (modul Search, Google). 
-Pre administrátora bude zoznam stránok prístupný na domena/pages.
+Pre administrátora bude zoznam stránok prístupný na \url{domena/pages}.
 \subsubsection{Funkčné požiadavky}
 Každá stránka bude mať titulok, čiže názov stránky. Ďalej bude obsahovať telo stránky -- text. 
 A taktiež bude zaznamenaný čas vytvorenia. Stránka bude mať 2 stavy: publikovaná\slash nepublikovaná. 
@@ -277,9 +288,11 @@ Vždy môže byť aktívna iba jedna téma. CMS bude obsahovať štandardnú té
 \end{flushleft}
 Tento modul umožní vytvárať, upravovať a odoberať lokalizácie.
 \subsubsection{Spôsob prístupu}
+Pri prvej návšteve sa zobrazí štandarný jazyk. Výber jazyka bude možný na hlavnej stránke (ak bude táto funkcionalita povolená v administračnom rozhraní), pričom sa zaznamená cookie a pri ďalšej návšteve sa mu zobrazí predtým vybraný jazyk.
 Cez administračné rozhranie (modul Authentification) správa lokalizácii.
 \subsubsection{Funkčné požiadavky}
-Vždy môže byť aktívna iba jedna lokalizácia. CMS bude obsahovať anglickú a slovenskú lokalizáciu.
+Vždy môže byť aktívna iba jedna lokalizácia. CMS bude obsahovať anglickú a slovenskú lokalizáciu. 
+Lokalizácia bude implementovaná pomocou I18n rozhrania Rails.
 
 \subsection{Wysiwyg editor}
 \subsubsection{Popis a priorita}
@@ -307,7 +320,7 @@ CMS podporuje prístup cez prehliadač či už v počítači, mobile alebo table
 Túto časť popisuje základný princíp fungovania CMS. 
 
 \subsection{Komunikačné rozhranie}
-Užívateľ bude mať možnosť komunikovať s autorom CMS cez e-mail. E-mailový kontakt na autora CMS je \url{web@xjcook.net}.
+Aplikácia bude primárne komunikovať cez HTTP protokol na štandardnom porte 80. V prípade prihlásenia\slash administrácie bude voliteľná HTTPS komunikácia (ak sa ju podarí implementovať).
 
 \newpage
 \section{Iné požiadavky}
@@ -362,8 +375,12 @@ Táto kapitola obsahuje podrobný časový harmonogram projektu, tak ako budem p
 \addcontentsline{toc}{subsection}{Príloha B: Freemind map}
 \includegraphics[width=\textwidth]{freemind.pdf}
 
-\subsection*{Príloha C: TODO}
-\addcontentsline{toc}{subsection}{Príloha C: TODO}
+\subsection*{Príloha C: Logical model}
+\addcontentsline{toc}{subsection}{Príloha C: Logical model}
+\includegraphics[width=\textwidth]{schema.png}
+
+\subsection*{Príloha D: TODO}
+\addcontentsline{toc}{subsection}{Príloha D: TODO}
 V priebehu projektu aplikáciu testovať unit testami.
 
 \end{document}
