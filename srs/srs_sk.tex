@@ -114,7 +114,7 @@ Projekt bude používať Git verzovací systém. Bude dostupný na \url{https://
 
 \newpage
 \section{Systémové moduly}
-CMS bude založené na plne modulárnej architektúre. V nasledujúcej časti je popísaný zoznam modulov. 
+CMS bude založený na plne modulárnej architektúre. V nasledujúcej časti je popísaný zoznam modulov. 
 Moduly sa budú dať aktivovať\slash deaktivovať cez administračné rozhranie. Tie ktoré majú typ -- základný sú vždy aktivované.
 
 \subsection{User}
@@ -137,7 +137,7 @@ Rola bude môcť byť typu:
  \item Administrator
   \subitem superuživateľ, má profil aj plné práva
 \end{itemize}
-Na autentifikáciu sa používa modul Authentification.
+Na autentifikáciu sa používa modul Authentification. Pri inštalácii CMS sa vytvorí prvý užívateľ - Administrátor.
 
 \subsection{Authentification}
 \subsubsection{Popis a priorita}
@@ -150,7 +150,9 @@ Tento modul riadi užívateľskú session.
 Autentifikácia prebieha buď v postrannom paneli alebo cez \url{domena/user}.
 \subsubsection{Funkčné požiadavky}
 Modul má na starosti kontrolu session. Užívateľa dokáže prihlásiť, odhlásiť, zaregistrovať alebo mu obnoviť zabudnuté heslo.
-
+V prípade chybného prihlásenia dovolí užívateľovi obnoviť heslo vygenerovaním nového (heslo sa zašle na e-mail).
+Po viacnásobnom chybnom prihlásení zobrazí aj CAPTCHU. Taktiež pridá záznam o (ne)prihlásení do logu.
+  
 \subsection{Administration interface}
 \subsubsection{Popis a priorita}
 \begin{flushleft}
@@ -162,6 +164,7 @@ Tento modul poskytuje user-friendly rozhranie ku správe všetkých nastavení, 
 Do rozhrania sa dá dostať cez \url{domena/admin}.
 \subsubsection{Funkčné požiadavky}
 Modul overí používateľa pomocou modulu Authentification a po úspešnej autentifikácii mu umožní spravovať CMS.
+Umožní mu spravovať všetky moduly, ďalej funkcie, ktoré súvisia s CMS a taktiež systémové logy (napríklad chybné prihlásenie). Rozšírená funkcionalita tohto modulu bude napríklad zablokovanie užívateľa pomocou IP adresy\slash nicku.
 
 \subsection{Page}
 \subsubsection{Popis a priorita}
@@ -179,7 +182,7 @@ Každá stránka bude mať titulok, čiže názov stránky. Ďalej bude obsahova
 A taktiež bude zaznamenaný čas vytvorenia. Stránka bude mať 2 stavy: publikovaná\slash nepublikovaná. 
 Publikovanú stránku uvidia všetci návštevníci. Nepublikovanú uvidí iba jej tvorca -- administrátor. 
 Čas publikovania sa bude dať nastaviť. Nikto iný okrem administrátora nebude mať právo vytvoriť, upraviť, vymazať stránku. 
-Ku každej stránke sa bude dať priradiť menu.
+Ku každej stránke sa bude dať priradiť menu. Pri chybnom zadaní adresy sa zobrazí 404 stránka.
 
 \subsection{Story}
 \subsubsection{Popis a priorita}
@@ -199,6 +202,7 @@ Nepublikovaný uvidí iba jeho tvorca a administrátor. Čas publikovania sa bud
 Právo vytvoriť, upraviť, vymazať článok bude mať autor a administrátor. 
 Návštevníci budú môcť k článkom pridávať komentáre a hodnotiť články (práva závisia od nastavenia). 
 Ku každému článku sa bude dať priradiť menu, anketa (modul Survey) a nastaviť nezobrazenie na Homepage (hlavnej stránke).
+Pri chybnom zadaní adresy sa zobrazí 404 stránka.
 
 \subsection{Menu}
 \subsubsection{Popis a priorita}
@@ -251,7 +255,7 @@ Tento modul umožní prehľadávať stránky, články, ankety (modul Survey).
 \subsubsection{Spôsob prístupu}
 Na každej stránke bude políčko pre vyhľadanie. Umiestnenie závisí od témy.
 \subsubsection{Funkčné požiadavky}
-Vyhľadávanie bude musieť byť dostatočne účinné, efektívne aby plnilo požiadavky vysokých nárokov užívateľov po skúsenostiach s vyhľadávačom Google.
+Vyhľadávanie bude musieť byť dostatočne účinné, efektívne aby plnilo požiadavky vysokých nárokov užívateľov po skúsenostiach s vyhľadávačom Google. V prípade neexistujúceho výrazu zobrazí stránku o neúspešnom hľadaní.
 
 \subsection{Survey}
 \subsubsection{Popis a priorita}
@@ -266,7 +270,8 @@ Avšak základný prístup k ankete bude cez postranný panel alebo cez anketu v
 Pre administrátora bude zoznam článkov prístupný na \url{domena/surveys}. 
 \subsubsection{Funkčné požiadavky}
 Anketu do postranného panelu bude môcť vytvoriť, upraviť a vymazať len administrátor. Do článku ju bude môcť pripojiť autor článku / administrátor. 
-Návštevníci budú môcť k anketám pridávať komentáre a hodnotiť ich (práva závisia od nastavenia).
+Návštevníci budú môcť k anketám pridávať komentáre a hodnotiť ich (práva závisia od nastavenia). 
+V ankete bude môcť hlasovať návštevník len raz, toto sa zabezpečí overením IP adresy.
 
 \subsection{Theme}
 \subsubsection{Popis a priorita}
@@ -305,7 +310,7 @@ Rozšírený editor nad \verb|<textarea>|, ktorý umožní formátovanie textu t
 Wysiwyg editor sa ukáže vždy keď bude prítomný tag \verb|<textarea>|, napríklad pri pridávaní článku.
 \subsubsection{Funkčné požiadavky}
 Wysiwyg editor by mal zvládať označený\slash nový text zvýrazniť, podčiarknuť, preškrtnúť, nastaviť kurzívu a veľkosť písma. 
-Tiež by mal vedieť pridať smajlíkov\slash obrázky. 
+Tiež by mal vedieť pridať smajlíkov\slash obrázky. Vrámci editoru bude fungovať služba aj na upload obrázkov.
 
 \newpage
 \section{Požiadavky na rozhranie}
@@ -367,8 +372,12 @@ Táto kapitola obsahuje podrobný časový harmonogram projektu, tak ako budem p
 \subsection*{Príloha A: Slovník}
 \addcontentsline{toc}{subsection}{Príloha A: Slovník}
 \begin{itemize}
- \item CMS --- systém na správu obsahu
  \item Autentifikácia --- overenie používateľa
+ \item CAPTCHA --- test na overenie používateľa či nie je robot (počítač)
+ \item CMS --- systém na správu obsahu
+ \item Framework --- softvérová štruktúra, ktorá uľahčuje programovanie združením rôznych nástrojov, knižníc, návodov 
+ \item Ruby --- interpretovaný programovací jazyk
+ \item Ruby on Rails (RoR) --- webový framework postavený na jazyku Ruby
 \end{itemize}
 
 \subsection*{Príloha B: Freemind map}
@@ -377,7 +386,7 @@ Táto kapitola obsahuje podrobný časový harmonogram projektu, tak ako budem p
 
 \subsection*{Príloha C: Logical model}
 \addcontentsline{toc}{subsection}{Príloha C: Logical model}
-\includegraphics[width=\textwidth]{schema.png}
+\includegraphics[width=\textwidth]{schema.pdf}
 
 \subsection*{Príloha D: TODO}
 \addcontentsline{toc}{subsection}{Príloha D: TODO}
