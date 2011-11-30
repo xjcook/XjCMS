@@ -1,0 +1,18 @@
+<p>
+  <b>Author:</b>
+  <%= @story.author %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @story.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @story.content %>
+</p>
+
+
+<%= link_to 'Edit', edit_story_path(@story) %> |
+<%= link_to 'Back', stories_path %>
