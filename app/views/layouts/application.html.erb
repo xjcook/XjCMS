@@ -7,12 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	
-<% if flash[:notice] %>
-<p id="notice"><%= flash[:notice] %></p>
-<% end %>	
-	
-<%= yield %>
-
+	<div id="wrapper">
+		<div id="header">
+	     	<p>This is the Header</p>		 
+	 	</div>
+	 	<div id="navigation">
+	     	<p>This is the Navigation</p>
+	 	</div>
+	 	<div id="content">
+		 	<% if flash[:notice] %>
+			<p id="notice"><%= flash[:notice] %></p>
+			<% end %>	
+				
+			<%= yield %>
+		</div>
+		<div id="rightcolumn">
+			<p>Right Column</p>
+		</div>
+		<div id="footer">
+			<p>This is the Footer</p>
+		</div>   
+	</div>
 </body>
 </html>
