@@ -1,23 +1,12 @@
 <h1>HomePage</h1>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>	
-    <th></th>
-  </tr>
-
 <% @stories.each do |story| %>
-  <tr>
-    <td><%= story.author %></td>
-    <td><%= story.title %></td>
-    <td><%= story.content %></td>
-    <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+	<h2><%= story.title %></h2>
+	<p><%= truncate(story.content, :length => 400) %></p>
+	<p>
+		<%= story.author %> | 
+		<%= link_to 'Show', story %> | 
+		<%= link_to 'Edit', edit_story_path(story) %> | 
+		<%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
+	</p>
 <% end %>
-</table>

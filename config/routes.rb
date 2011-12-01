@@ -1,4 +1,8 @@
 CMS::Application.routes.draw do
+  resources :users
+  
+  resources :sessions
+  
   resources :stories
 
   resources :pages
@@ -68,7 +72,5 @@ CMS::Application.routes.draw do
   get "signup" => "users#new", :as => "signup"
   #root :to => "users#new"
   root :to => 'HomePage#index'
-  resources :users
-  resources :sessions
   #get "secret" => "secret#index"
 end

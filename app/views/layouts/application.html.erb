@@ -12,17 +12,33 @@
 	     	<p>This is the Header</p>		 
 	 	</div>
 	 	<div id="navigation">
-	     	<p>This is the Navigation</p>
+	     	<ul>
+	     		<li><%= link_to "Home", root_url %></li>
+	     	</ul>
 	 	</div>
 	 	<div id="content">
 		 	<% if flash[:notice] %>
-			<p id="notice"><%= flash[:notice] %></p>
+				<p id="notice"><%= flash[:notice] %></p>
 			<% end %>	
 				
 			<%= yield %>
 		</div>
 		<div id="rightcolumn">
 			<p>Right Column</p>
+			<%= form_tag sessions_path do %>
+				<div class="field">
+					<%= label_tag :email %>
+					<%= text_field_tag :email, params[:email] %>
+				</div>
+				<div class="field">
+					<%= label_tag :password %>
+					<%= password_field_tag :password %>
+				</div>
+				<div class="actions">
+					<%= submit_tag "Log in" %><br>
+					<%= link_to "Register", signup_path %>
+				</div>
+			<% end %>
 		</div>
 		<div id="footer">
 			<p>This is the Footer</p>
