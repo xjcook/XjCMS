@@ -1,4 +1,6 @@
 class StoriesController < ApplicationController
+  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  
   # GET /stories
   # GET /stories.json
   def index
