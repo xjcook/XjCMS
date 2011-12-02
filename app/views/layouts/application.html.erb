@@ -14,8 +14,11 @@
 	 	<div id="navigation">
 	     	<ul>
 	     		<li><%= link_to "Home", root_url %></li>
-	     	</ul>
+	     		<li><%= link_to "Pages", pages_path %></li>
+				<li><%= link_to "Stories", stories_path %></li>
+			</ul>
 	 	</div>
+	 	<div id="contentwrapper">
 	 	<div id="content">
 		 	<% if flash[:notice] %>
 				<p id="notice"><%= flash[:notice] %></p>
@@ -24,21 +27,9 @@
 			<%= yield %>
 		</div>
 		<div id="rightcolumn">
-			<p>Right Column</p>
-			<%= form_tag sessions_path do %>
-				<div class="field">
-					<%= label_tag :email %>
-					<%= text_field_tag :email, params[:email] %>
-				</div>
-				<div class="field">
-					<%= label_tag :password %>
-					<%= password_field_tag :password %>
-				</div>
-				<div class="actions">
-					<%= submit_tag "Log in" %><br>
-					<%= link_to "Register", signup_path %>
-				</div>
-			<% end %>
+			<p>User</p>
+			
+		</div>
 		</div>
 		<div id="footer">
 			<p>This is the Footer</p>

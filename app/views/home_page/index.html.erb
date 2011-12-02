@@ -1,12 +1,11 @@
 <h1>HomePage</h1>
 
 <% @stories.each do |story| %>
-	<h2><%= story.title %></h2>
-	<p><%= truncate(story.content, :length => 400) %></p>
-	<p>
-		<%= story.author %> | 
-		<%= link_to 'Show', story %> | 
-		<%= link_to 'Edit', edit_story_path(story) %> | 
-		<%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
-	</p>
+	<div class="story">
+		<h2><%= link_to story.title, story %></h2>
+		<p>
+			<%= truncate(story.content, :length => 400) %><br>
+			<i>by <%= story.author %></i>
+		</p>
+	</div>
 <% end %>
