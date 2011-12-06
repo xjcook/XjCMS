@@ -1,4 +1,18 @@
 CMS::Application.routes.draw do
+  controller :sessions do
+    get 'login' => :new
+    post 'login' => :create
+    delete 'logout' => :destroy
+  end
+  
+  get "home_page/index"
+  
+  get "logout" => "sessions#destroy", :as => "logout"
+  
+  get "login" => "sessions#new", :as => "login"
+  
+  get "signup" => "users#new", :as => "signup"
+  
   resources :users
   
   resources :sessions
@@ -6,8 +20,6 @@ CMS::Application.routes.draw do
   resources :stories
 
   resources :pages
-
-  get "home_page/index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -59,18 +71,11 @@ CMS::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  #root :to => 'HomePage#index'
+  root :to => 'HomePage#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  
-  get "logout" => "sessions#destroy", :as => "logout"
-  get "login" => "sessions#new", :as => "login"
-  get "signup" => "users#new", :as => "signup"
-  #root :to => "users#new"
-  root :to => 'HomePage#index'
-  #get "secret" => "secret#index"
 end

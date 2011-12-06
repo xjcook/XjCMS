@@ -1,8 +1,8 @@
 <% if session[:user_id].nil? %>
 	<%= form_tag sessions_path do %>
 	  <div class="field">
-	    <%= label_tag :email %>
-	    <%= text_field_tag :email, params[:email] %>
+	    <%= label_tag :login %>
+	    <%= text_field_tag :login, params[:login] %>
 	  </div>
 	  <div class="field">
 	    <%= label_tag :password %>
@@ -11,5 +11,5 @@
 	  <div class="actions"><%= submit_tag "Log in" %></div>
 	<% end %>
 <% else %>
-	<%= link_to "Logout", logout_path %>
+	<%= button_to "Logout", logout_path, :method => :delete %>
 <% end %>

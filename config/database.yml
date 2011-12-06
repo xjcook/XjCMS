@@ -3,7 +3,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: corpweb_development
+  database: cms_development
   pool: 5
   username: xj
   password: lodenice
@@ -11,7 +11,7 @@ development:
 production:
   adapter: postgresql
   encoding: unicode
-  database: corpweb_production
+  database: cms_production
   pool: 5
   username: xj
   password: lodenice
@@ -19,7 +19,7 @@ production:
 test:
   adapter: postgresql
   encoding: unicode
-  database: corpweb_test
+  database: cms_test
   pool: 5
   username: xj
   password: lodenice  

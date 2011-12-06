@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <title>CMS</title>
   <%= stylesheet_link_tag    "application" %>
@@ -9,13 +9,14 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-	     	<p>This is the Header</p>		 
+	     	This is the Header
 	 	</div>
 	 	<div id="navigation">
 	     	<ul>
 	     		<li><%= link_to "Home", root_url %></li>
 	     		<li><%= link_to "Pages", pages_path %></li>
 				<li><%= link_to "Stories", stories_path %></li>
+				<li><%= link_to "Signup", signup_path %></li>
 			</ul>
 	 	</div>
 	 	<div id="contentwrapper">
@@ -31,7 +32,7 @@
 		</div>
 		</div>
 		<div id="footer">
-			<p>This is the Footer</p>
+			This is the Footer
 		</div>   
 	</div>
 </body>
