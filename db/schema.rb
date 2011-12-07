@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111206152754) do
+ActiveRecord::Schema.define(:version => 20111207093942) do
 
   create_table "pages", :force => true do |t|
     t.string   "author"
@@ -43,6 +43,9 @@ ActiveRecord::Schema.define(:version => 20111206152754) do
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "role_id"
   end
+
+  add_index "users", ["role_id"], :name => "index_users_on_role_id"
 
 end

@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+  role: "role"
+  admin: "administrator"
+  user: "user"
+  
+sk:
+  role: "roľa"
+  admin: "administrátor"
+  user: "používateľ"

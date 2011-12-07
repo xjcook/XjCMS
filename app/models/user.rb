@@ -1,8 +1,9 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  attr_accessible :login, :email, :firstname, :lastname, :password, :password_confirmation
+  attr_accessible :login, :email, :firstname, :lastname, :password, :password_confirmation, :role_id
   has_secure_password
-  validates :login, :password, :presence => true
+  validates :login, :password, :role_id, :presence => true
   validates :login, :uniqueness => true
-  validates :password, :length => {:minimum => 5}
+  validates :password, :length => {:minimum => 4}
+  validates :role_id, :numericality => true
 end
