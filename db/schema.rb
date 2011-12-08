@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111207093942) do
+ActiveRecord::Schema.define(:version => 20111208205102) do
 
   create_table "pages", :force => true do |t|
     t.string   "author"
@@ -19,6 +19,20 @@ ActiveRecord::Schema.define(:version => 20111207093942) do
     t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "permissions", :force => true do |t|
+    t.boolean  "hero"
+    t.boolean  "pages"
+    t.boolean  "stories"
+    t.boolean  "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "permissions_roles", :id => false, :force => true do |t|
+    t.integer "permission_id"
+    t.integer "role_id"
   end
 
   create_table "roles", :force => true do |t|

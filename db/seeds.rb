@@ -8,18 +8,19 @@
 
 # Clean all data
 Role.delete_all
+Permission.delete_all
 User.delete_all
 Story.delete_all
 Page.delete_all
 
 # Fill roles
-Role.create(:name => "admin")
-Role.create(:name => "user")
+#Role.create(:name => "admin")
+#Role.create(:name => "user")
 #Role.create(:name => "guest")
 
 # Fill users
-User.create(:login => "admin", :password => "admin", :role_id => 1)
-User.create(:login => "user",  :password => "user",  :role_id => 2)
+#User.create(:login => "admin", :password => "admin", :role_id => 1)
+#User.create(:login => "user",  :password => "user",  :role_id => 2)
 
 # Fill stories
 Story.create(:author => "XjCook",
