@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  skip_before_filter :authorize, :only => [:index, :show]
   
   # GET /stories
   # GET /stories.json
@@ -43,6 +43,7 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(params[:story])
+    @story.user = @current_user
 
     respond_to do |format|
       if @story.save

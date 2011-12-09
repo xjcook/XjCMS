@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
+  skip_before_filter :authorize, :only => [:index, :show]
   
   # GET /pages
   # GET /pages.json
@@ -43,6 +43,7 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
+    @page.user = @current_user
 
     respond_to do |format|
       if @page.save
