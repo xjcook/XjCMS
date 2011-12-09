@@ -14,13 +14,21 @@ Story.delete_all
 Page.delete_all
 
 # Fill roles
-#Role.create(:name => "admin")
-#Role.create(:name => "user")
-#Role.create(:name => "guest")
+admin = Role.create(:name => "admin")
+redactor = Role.create(:name => "redactor")
+user = Role.create(:name => "user")
+guest = Role.create(:name => "guest")
+
+admin.permissions.create(:hero => true, :pages => true, :stories => true, :comments => true)
+redactor.permissions.create(:hero => true, :pages => false, :stories => true, :comments => true)
+user.permissions.create(:hero => false, :pages => false, :stories => true, :comments => true)
+guest.permissions.create(:hero => false, :pages => false, :stories => false, :comments => true)
 
 # Fill users
-#User.create(:login => "admin", :password => "admin", :role_id => 1)
-#User.create(:login => "user",  :password => "user",  :role_id => 2)
+User.create(:login => "admin", :password => "admin", :role => admin)
+User.create(:login => "redactor", :password => "redactor", :role => redactor)
+User.create(:login => "user",  :password => "user",  :role => user)
+User.create(:login => "guest",  :password => "guest",  :role => guest)
 
 # Fill stories
 Story.create(:author => "XjCook",

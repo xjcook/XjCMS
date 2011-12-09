@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111208205102) do
+ActiveRecord::Schema.define(:version => 20111209114033) do
 
   create_table "pages", :force => true do |t|
     t.string   "author"
@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(:version => 20111208205102) do
     t.integer "permission_id"
     t.integer "role_id"
   end
+
+  add_index "permissions_roles", ["permission_id"], :name => "index_permissions_roles_on_permission_id"
+  add_index "permissions_roles", ["role_id"], :name => "index_permissions_roles_on_role_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    if User.first
+#if User.first
       @user = User.new(params[:user])
-      @user.role_id = 2 # normal user
-    else
-      @user = User.new(params[:user])
-      @user.role_id = 1 # administrator
-    end
+#@user.role_id = 2 # normal user
+#else
+#@user = User.new(params[:user])
+#@user.role_id = 1 # administrator
+#end
     
     if @user.save
       redirect_to root_url, :notice => "Signed up!"
