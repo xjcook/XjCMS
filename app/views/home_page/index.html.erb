@@ -1,15 +1,12 @@
 <div class="page">
   <h2><%= link_to @page.title, @page %></h2>
-  <p><%= truncate(strip_tags(@page.content), :length => 1000) %></p>    
+  <%= @page.content.html_safe %> 
 </div>
 
 <h2><%=t :stories %></h2>
 <% @stories.each do |story| %>
 	<div class="story">
 		<h2><%= link_to story.title, story %></h2>
-		<p>
-			<%= truncate(strip_tags(story.content), :length => 400) %><br>
-			<i>by <%= story.user.author %></i>
-		</p>
+		<%= story.content.html_safe %>
 	</div>
 <% end %>

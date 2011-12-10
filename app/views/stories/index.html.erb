@@ -1,27 +1,13 @@
 <h1>Listing stories</h1>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'New Story', new_story_path %>
 
 <% @stories.each do |story| %>
-  <tr>
-    <td><%= story.user.author %></td>
-    <td><%= story.title %></td>
-    <td><%= story.content %></td>
-    <td><%= link_to 'Show', story %></td>
-    <td><%= link_to 'Edit', edit_story_path(story) %></td>
-    <td><%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <h2><%= link_to story.title, story %></h2>
+    <%= story.content.html_safe %>
+    <p>
+      <%= story.user.author %> |
+      <%= link_to 'Edit', edit_page_path(story) %> |
+      <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
+    </p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Story', new_story_path %>

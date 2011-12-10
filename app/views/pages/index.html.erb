@@ -1,27 +1,13 @@
 <h1>Listing pages</h1>
 
-<table>
-  <tr>
-    <th>Author</th>
-    <th>Title</th>
-    <th>Content</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<%= link_to 'New Page', new_page_path %>
 
 <% @pages.each do |page| %>
-  <tr>
-    <td><%= page.user.author %></td>
-    <td><%= page.title %></td>
-    <td><%= page.content %></td>
-    <td><%= link_to 'Show', page %></td>
-    <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+    <h2><%= link_to page.title, page %></h2>
+    <%= page.content.html_safe %>
+    <p>
+      <%= page.user.author %> |
+      <%= link_to 'Edit', edit_page_path(page) %> |
+      <%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %>
+    </p>
 <% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Page', new_page_path %>
