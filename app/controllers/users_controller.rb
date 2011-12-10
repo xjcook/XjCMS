@@ -1,13 +1,16 @@
+# -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
   skip_before_filter :authorize
 
   def new
+    @role = Role.find_by_name("user")
     @user = User.new
   end
 
   def create
 #if User.first
-      @user = User.new(params[:user])
+    @role = Role.find_by_name("user")
+    @user = User.new(params[:user])
 #@user.role_id = 2 # normal user
 #else
 #@user = User.new(params[:user])

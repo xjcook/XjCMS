@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddAuthorToUsers < ActiveRecord::Migration
   def up
     add_column :users, :author, :string
@@ -14,10 +15,12 @@ class AddAuthorToUsers < ActiveRecord::Migration
           RETURN NEW;
         END;
       $author_update$ LANGUAGE plpgsql;
-      
+    SQL
+    
+    execute <<-SQL
       CREATE TRIGGER author_update BEFORE INSERT OR UPDATE ON users
         FOR EACH ROW EXECUTE PROCEDURE author_update();
-SQL
+    SQL
   end
   
   def down

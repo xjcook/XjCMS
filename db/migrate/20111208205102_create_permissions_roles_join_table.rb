@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreatePermissionsRolesJoinTable < ActiveRecord::Migration
   def change
     create_table :permissions_roles, :id => false do |t|

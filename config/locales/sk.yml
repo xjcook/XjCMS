@@ -1,0 +1,13 @@
+sk:
+  hello: "Ahoj svet"
+  role: "roľa"
+  admin: "administrátor"
+  user: "používateľ"
+  cms: "Redakčný systém (CMS)"
+  year_project: "Ročníkový projekt"
+  copyright: "Všetky práva vyhradené"
+  home: "Domov"
+  pages: "Stránky"
+  stories: "Články"
+  signup: "Registrácia"
+

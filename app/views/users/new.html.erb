@@ -11,6 +11,7 @@
       </ul>
     </div>
   <% end %>
+  <%= f.hidden_field :role_id, :value => @role.id  %>
   <div class="field">
     <%= f.label :login %>
     <%= f.text_field :login %>

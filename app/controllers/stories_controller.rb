@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class StoriesController < ApplicationController
   skip_before_filter :authorize, :only => [:index, :show]
   
@@ -43,7 +44,6 @@ class StoriesController < ApplicationController
   # POST /stories.json
   def create
     @story = Story.new(params[:story])
-    @story.user = @current_user
 
     respond_to do |format|
       if @story.save

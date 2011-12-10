@@ -1,13 +1,12 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
 en:
   hello: "Hello world"
   role: "role"
   admin: "administrator"
   user: "user"
-  
-sk:
-  role: "roľa"
-  admin: "administrátor"
-  user: "používateľ"
+  cms: "Content management system"
+  year_project: "Year project"
+  copyright: "All rights reserved."
+  home: "Home"
+  pages: "Pages"
+  stories: "Stories"
+  signup: "Signup"

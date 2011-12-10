@@ -1,25 +1,22 @@
+# -*- encoding : utf-8 -*-
 CMS::Application.routes.draw do
-  controller :sessions do
-    get 'login' => :new
-    post 'login' => :create
-    delete 'logout' => :destroy
+  scope "(:locale)", :locale => /en|sk/ do
+    resources :users  
+    resources :sessions    
+    resources :stories  
+    resources :pages
   end
   
-  get "home_page/index"
+  controller :sessions do
+    get ':locale/login' => :new
+    post ':locale/login' => :create
+    delete ':locale/logout' => :destroy
+  end  
   
-  get "logout" => "sessions#destroy", :as => "logout"
-  
-  get "login" => "sessions#new", :as => "login"
-  
-  get "signup" => "users#new", :as => "signup"
-  
-  resources :users
-  
-  resources :sessions
-  
-  resources :stories
-
-  resources :pages
+  get ":locale/logout" => "sessions#destroy", :as => "logout"  
+  get ":locale/login" => "sessions#new", :as => "login"  
+  get ":locale/signup" => "users#new", :as => "signup"
+  match '/:locale' => 'home_page#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -71,7 +68,7 @@ CMS::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'welcome#index'
-  root :to => 'HomePage#index'
+  root :to => 'home_page#index'
 
   # See how all your routes lay out with "rake routes"
 

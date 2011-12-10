@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
 #
@@ -27,14 +28,32 @@ guest.permissions.create(:hero => false, :pages => false, :stories => false, :co
 # Fill users
 admin = User.create(:login => "admin",
   :password => "admin",
-  :email => "admin@admin",
+  :email => "admin@xjcook.net",
   :firstname => "Ondrej",
   :lastname => "Danko",
   :role => admin
 )
-redactor = User.create(:login => "redactor", :password => "redactor", :role => redactor)
-user = User.create(:login => "user",  :password => "user",  :role => user)
-guest = User.create(:login => "guest",  :password => "guest",  :role => guest)
+redactor = User.create(:login => "redactor", 
+  :password => "redactor",
+  :email => "redactor@xjcook.net",
+  :firstname => "Janko",
+  :lastname => "Hrasko",
+  :role => redactor
+)
+user = User.create(:login => "user",  
+  :password => "user",
+  :email => "user@xjcook.net",
+  :firstname => "Marienka",
+  :lastname => "Hraskova",
+  :role => user
+)
+guest = User.create(:login => "guest",  
+  :password => "guest",
+  :email => "guest@xjcook.net",
+  :firstname => "Duch",
+  :lastname => "Marienky",
+  :role => guest
+)
 
 # Fill stories
 Story.create(:user => redactor,

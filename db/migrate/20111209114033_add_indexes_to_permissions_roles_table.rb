@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class AddIndexesToPermissionsRolesTable < ActiveRecord::Migration
   def change
     add_index :permissions_roles, :permission_id

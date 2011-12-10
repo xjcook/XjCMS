@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangePagesTable < ActiveRecord::Migration
   def up
     change_table :pages do |t|

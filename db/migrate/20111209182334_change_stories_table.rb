@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class ChangeStoriesTable < ActiveRecord::Migration
   def up
     change_table :stories do |t|

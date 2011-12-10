@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class PagesController < ApplicationController
   skip_before_filter :authorize, :only => [:index, :show]
   
@@ -43,7 +44,6 @@ class PagesController < ApplicationController
   # POST /pages.json
   def create
     @page = Page.new(params[:page])
-    @page.user = @current_user
 
     respond_to do |format|
       if @page.save

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>CMS</title>
+  <title><%=t :cms %></title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -9,30 +9,27 @@
 <body>
 	<div id="wrapper">
 		<div id="header">
-	     	This is the Header
+		  <h1><%=t :year_project %></h1>
 	 	</div>
 	 	<div id="navigation">
-	     	<ul>
-	     		<li><%= link_to "Home", root_url %></li>
-	     		<li><%= link_to "Pages", pages_path %></li>
-				<li><%= link_to "Stories", stories_path %></li>
-				<li><%= link_to "Signup", signup_path %></li>
+     	<ul>
+     		<li><%= link_to t(:home), root_url %></li>
+     		<li><%= link_to t(:pages), pages_path %></li>
+			  <li><%= link_to t(:stories), stories_path %></li>
+			  <li><%= link_to t(:signup), signup_path %></li>
 			</ul>
 	 	</div>
 	 	<div id="contentwrapper">
-	 	<div id="content">
-		 	<% if flash[:notice] %>
-				<p id="notice"><%= flash[:notice] %></p>
-			<% end %>	
-				
-			<%= yield %>
-		</div>
+	 	  <div id="content">
+	 	    <%= flash_messages.html_safe %>
+			  <%= yield %>
+		  </div>
 		<div id="rightcolumn">
 			<%= render 'sessions/form' %>
 		</div>
 		</div>
 		<div id="footer">
-			This is the Footer
+		  &copy; 2011 XjCook - <%=t :copyright %> 
 		</div>   
 	</div>
 </body>
