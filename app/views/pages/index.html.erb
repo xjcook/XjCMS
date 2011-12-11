@@ -6,7 +6,9 @@
     <h2><%= link_to page.title, page %></h2>
     <%= page.content.html_safe %>
     <p>
-      <%= page.user.author %> |
+      <% if page.user.author  %>
+        <%= page.user.author %> |
+      <% end %>
       <%= link_to 'Edit', edit_page_path(page) %> |
       <%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %>
     </p>
