@@ -1,45 +1,114 @@
 /** { padding: 0; margin: 0; }*/
 
 body {
+  color: #333;
+  background: #e0e0e0;
   font-family: Verdana, Arial, Helvetica, sans-serif;
-  background: #f5f5f5 !important;
+  font-size: small;
+  line-height: 1.5;
   
-  div.notice {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    width: 40%;
-    border: 5px solid #ccc;
-    padding: 2em;
-    font-weight: bold;
+  h1 {
+    font-size: 175%;
+  }
+  
+  h2 {
+    font-size: 150%;
+  }
+  
+  h3 {
+    font-size: 125%;
+  }
+  
+  a {
+    color: #333;
+    /*&:visited {
+      color: #666; 
+    }*/
+    &:hover {
+      color: #fff;
+      background-color: #000; 
+    } 
+  }
+      
+  code {
+    font-family: monospace;
+    white-space: pre;
+  }
+  
+  pre {
+    background-color: #eee;
+    padding: 10px;
+    font-size: 80%;
+  }
+  
+  div {
+    &.notice {
+      font-weight: bold;
+      text-align: center;
+      width: 40%;
+      border: 5px solid #ccc;
+      margin: 0 auto;
+      padding: 2em;
+    }
+    
+    &.field, &.actions {
+      margin-bottom: 10px; 
+    }
+  }
+
+  .field_with_errors {
+    padding: 2px;
+    background-color: red;
+    display: table; 
+  }
+
+  #error_explanation {
+    width: 450px;
+    border: 2px solid red;
+    padding: 7px;
+    padding-bottom: 0;
+    margin-bottom: 20px;
+    background-color: #f0f0f0;
+    
+    h2 {
+      text-align: left;
+      font-weight: bold;
+      padding: 5px 5px 5px 15px;
+      font-size: 12px;
+      margin: -7px;
+      margin-bottom: 0px;
+      background-color: #c00;
+      color: #fff; 
+    }
+    
+    ul li {
+      font-size: 12px;
+      list-style: square;   
+    } 
   }
   
   #wrapper { 
-    margin: 0 auto;
-    /*width: 100%;*/
-    min-width: 20em;
-    max-width: 75em;
+    margin: 1em auto;
+    width: 100%;
+    min-width: 40em;
+    max-width: 70em;
     
     #header {
       color: #FFF;
-      float: left;
-      width: 98%;
-      height: 5em;
-      /*line-height: 75px;*/
       background: #4671D5;
-      margin: 0;
-      padding: 1%;
+      padding: 2em;
+      
+      h1 {
+        margin: 0;
+        padding: 0;
+      }
     }
     
     #navigation {
       float: left;
-      width: 98%;
-      height: 1.5em;
-      /*line-height: 2.5em;*/
       color: #000;
       background: #FFB273;
-      margin: 0;
-      padding: 1%;
+      width: 100%;
     
       ul {
         list-style: none;
@@ -51,51 +120,74 @@ body {
         display: block;
         float: left;
         margin: 0 0.5em;
-        padding: 0;
+        padding: 0.5em;
       }
     }
-  
-    #contentwrapper {
-      background: #FFE773;
-      float: left;
-      width: 100%;
-      overflow: hidden;
-      margin: 0;
-      padding: 0;
     
-      #content { 
+    #contentwrapper {
+      clear: left;
+      overflow: hidden;
+      background: #FFF;
+    
+      #main { 
         float: left;
         color: #333;
         background: #FFFFFF;
-        width: 67%;
-        margin: 0;
-        padding: 0 2%;
+        min-width: 20em;
+        max-width: 50em;
+        margin-right: 17em;   /* space for sidebar */
+        padding: 0 1.5em;
+        /* Hack - same height of columns */
         padding-bottom: 3000px;
         margin-bottom: -3000px;
       }
       
-      #rightcolumn {
-        background: #FFE773;
+      #sidebar {
+        float: right;
         color: #333;
-        float: right; 
-        width: 25%;
-        margin: 0;
-        padding: 0 2%;
+        background: #FFE773; 
+        width: 15em;
+        padding: 1em;
+        margin-left: -17em;
+        /* Hack - same height of columns */
         padding-bottom: 3000px;
         margin-bottom: -3000px;
+          
+        form {
+          display: block;
+          width: 12em;
+          margin: 0 auto;
+          position: relative;
+          left: -0.5em;
+          
+          .field {             
+            label {
+              font-weight: bold;
+              text-transform: uppercase;
+            }
+          
+            input {
+              margin-top: 1em;
+              width: 100%;
+            }
+          }
+          
+          .actions {            
+            input {
+              margin-bottom: 1em;
+              text-transform: uppercase;
+            }            
+          }
+        }
       }
     }
     
     #footer { 
+      clear: both;
       background: #FFB273;
       color: #333;
-      clear: both;
       text-align: center;
-      width: 98%;
-      /*height: 2.5em;*/
-      /*line-height: 2.5em;*/
-      margin: 0;
-      padding: 1%;
+      padding: 1em;
     }
   }
 }

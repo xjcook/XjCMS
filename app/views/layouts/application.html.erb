@@ -7,30 +7,30 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div id="wrapper">
-		<div id="header">
-		  <h1><%=t :year_project %></h1>
-	 	</div>
-	 	<div id="navigation">
-     	<ul>
-     		<li><%= link_to t(:home), root_url %></li>
-     		<li><%= link_to t(:pages), pages_path %></li>
-			  <li><%= link_to t(:stories), stories_path %></li>
-			  <li><%= link_to t(:signup), signup_path %></li>
-			</ul>
-	 	</div>
-	 	<div id="contentwrapper">
-	 	  <div id="content">
-	 	    <%= flash_messages.html_safe %>
-			  <%= yield %>
-		  </div>
-		<div id="rightcolumn">
-			<%= render 'sessions/form' %>
-		</div>
-		</div>
-		<div id="footer">
-		  &copy; 2011 XjCook - <%=t :copyright %> 
-		</div>   
-	</div>
+  <div id="wrapper">
+    <div id="header">
+      <h1><%=t :year_project %></h1>
+    </div>
+    <div id="navigation">
+      <ul>
+      <li><%= link_to t(:home), root_url %></li>
+      <li><%= link_to t(:pages), pages_path %></li>
+      <li><%= link_to t(:stories), stories_path %></li>
+      <li><%= link_to t(:signup), signup_path %></li>
+      </ul>
+    </div>
+    <div id="contentwrapper">
+      <div id="main">
+        <%= flash_messages.html_safe %>
+        <%= yield %>
+      </div>
+      <div id="sidebar">
+        <%= render 'sessions/form' %>
+      </div>
+    </div>
+    <div id="footer">
+      &copy; 2011 XjCook - <%=t :copyright %> 
+    </div>
+  </div>
 </body>
 </html>
