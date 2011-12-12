@@ -1,6 +1,6 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
-  skip_before_filter :authorize
+  # TODO respond_to
 
   def new
     if User.first.nil?
