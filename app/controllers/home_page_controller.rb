@@ -1,6 +1,5 @@
 # -*- encoding : utf-8 -*-
-class HomePageController < ApplicationController
-  skip_before_filter :authorize  
+class HomePageController < ApplicationController 
 
   def index
     @page = Page.first
