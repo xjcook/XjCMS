@@ -27,6 +27,13 @@ class ApplicationController < ActionController::Base
       hero = current_user.role.permissions.where(:hero => true).exists?
       
       # ... ?
+      # ALGORITMUS
+      # - musime vediet kde sa nachadza
+      # - ak je hero, tak staci aby sa nachadzal v prislusnom controlleri
+      # - ak nie je, tak overime ci ma na action pravo t.j. post musi patrit jemu
+      # - aj ked nie je, ma pravo vytvarat nove posty
+      # IMPLEMENTACIA
+      # - do kazdeho controlleru supnut novu autorizacnu metodu
     else
       redirect_to login_path, :notice => "Please log in!"
     end
