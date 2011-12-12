@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   helper :all
   helper_method :current_user
   before_filter :set_locale
-  before_filter :authorize
   
   private
   
@@ -21,21 +20,43 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-  def authorize    
-    if current_user
-      # check if user has rights      
-      hero = current_user.role.permissions.where(:hero => true).exists?
-      
-      # ... ?
-      # ALGORITMUS
-      # - musime vediet kde sa nachadza
-      # - ak je hero, tak staci aby sa nachadzal v prislusnom controlleri
-      # - ak nie je, tak overime ci ma na action pravo t.j. post musi patrit jemu
-      # - aj ked nie je, ma pravo vytvarat nove posty
-      # IMPLEMENTACIA
-      # - do kazdeho controlleru supnut novu autorizacnu metodu
-    else
+  def authorize
+    if current_user.nil?
       redirect_to login_path, :notice => "Please log in!"
     end
+  end
+  
+  def check_rights(options={})
+    hero = current_user.role.permissions.where(:hero => true).exists?
+
+    case options[:section]
+      when :pages then
+        if hero 
+          return true
+        else
+          if Page.find_by_id(params[:id]).user.id == current_user.id
+            return true
+          end
+        end
+      when :stories then
+        if hero 
+          return true
+        else
+          if Story.find_by_id(params[:id]).user.id == current_user.id
+            return true
+          end
+        end
+      when :comments then
+        if hero 
+          return true
+        else
+          if Comment.find_by_id(params[:id]).user.id == current_user.id
+            return true
+          end
+        end
+    end    
+     
+    redirect_to root_path, :notice => "You don't have rights!"
+    return false
   end
 end
