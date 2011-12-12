@@ -1,8 +1,27 @@
 /** { padding: 0; margin: 0; }*/
+  
+@mixin equal-height {
+  /* CSS hack to get equal height of columns */
+  padding-bottom: 3000px;
+  margin-bottom: -3000px;
+}
 
 body {
-  color: #333;
-  background: #e0e0e0;
+  $back-color: #e0e0e0;
+  $header-color: #4671D5;
+  $nav-color: #FFB273;
+  $main-color: #FFFFFF;
+  $sidebar-color: #FFE773; 
+  $footer-color: $nav-color;
+  $text-color: #333;
+  
+  $fill: 1em;
+  $text-minwidth: 25em;
+  $text-maxwidth: 50em;
+  $sidebar-width: 15em;
+  
+  color: $text-color;
+  background: $back-color;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: small;
   line-height: 1.5;
@@ -19,8 +38,12 @@ body {
     font-size: 125%;
   }
   
+  p {
+    
+  }
+  
   a {
-    color: #333;
+    color: $text-color;
     /*&:visited {
       color: #666; 
     }*/
@@ -32,13 +55,14 @@ body {
       
   code {
     font-family: monospace;
+    font-size: smaller;
     white-space: pre;
   }
   
   pre {
     background-color: #eee;
-    padding: 10px;
-    font-size: 80%;
+    font-size: smaller;
+    padding: $fill;
   }
   
   div {
@@ -46,58 +70,58 @@ body {
       font-weight: bold;
       text-align: center;
       width: 40%;
-      border: 5px solid #ccc;
+      border: $fill/2 solid #ccc;
       margin: 0 auto;
-      margin-top: 1em;
-      padding: 2em;
+      margin-top: $fill;
+      padding: $fill*2;
     }
     
     &.field, &.actions {
-      margin-bottom: 10px; 
+      margin-bottom: $fill; 
     }
   }
 
   .field_with_errors {
-    padding: 2px;
+    padding: $fill/5;
     background-color: red;
     display: table; 
   }
 
   #error_explanation {
     width: 450px;
-    border: 2px solid red;
+    border: $fill/5 solid red;
     padding: 7px;
     padding-bottom: 0;
-    margin-bottom: 20px;
+    margin-bottom: $fill*2;
     background-color: #f0f0f0;
     
     h2 {
       text-align: left;
       font-weight: bold;
-      padding: 5px 5px 5px 15px;
-      font-size: 12px;
+      padding: $fill/2 $fill/2 $fill/2 $fill*3;
+      font-size: smaller;
       margin: -7px;
-      margin-bottom: 0px;
+      margin-bottom: 0;
       background-color: #c00;
       color: #fff; 
     }
     
     ul li {
-      font-size: 12px;
+      font-size: smaller;
       list-style: square;   
     } 
   }
   
   #wrapper { 
-    margin: 1em auto;
     width: 100%;
-    min-width: 40em;
-    max-width: 70em;
+    min-width: ($text-minwidth+$fill*1.5*2)+($sidebar-width+$fill*2);
+    max-width: ($text-maxwidth+$fill*1.5*2)+($sidebar-width+$fill*2);
+    margin: $fill auto;
     
     #header {
       color: #FFF;
-      background: #4671D5;
-      padding: 2em;
+      background: $header-color;
+      padding: $fill*2;
       
       h1 {
         margin: 0;
@@ -107,8 +131,8 @@ body {
     
     #navigation {
       float: left;
-      color: #000;
-      background: #FFB273;
+      color: $text-color;
+      background: $nav-color;
       width: 100%;
     
       ul {
@@ -120,39 +144,39 @@ body {
       ul li {
         display: block;
         float: left;
-        margin: 0 0.5em;
-        padding: 0.5em;
+        margin: 0 $fill/2;
+        padding: $fill/2;
+      }
+      
+      ul li a {
+        
       }
     }
     
     #contentwrapper {
       clear: left;
       overflow: hidden;
-      background: #FFF;
+      background: $main-color;
     
       #main { 
         float: left;
-        color: #333;
-        background: #FFFFFF;
-        min-width: 20em;
-        max-width: 50em;
-        margin-right: 17em;   /* space for sidebar */
-        padding: 0 1.5em;
-        /* Hack - same height of columns */
-        padding-bottom: 3000px;
-        margin-bottom: -3000px;
+        color: $text-color;
+        background: $main-color;
+        min-width: $text-minwidth;
+        max-width: $text-maxwidth;
+        margin-right: $sidebar-width+$fill*2;
+        padding: 0 $fill*1.5;
+        @include equal-height;
       }
       
       #sidebar {
         float: right;
-        color: #333;
-        background: #FFE773; 
-        width: 15em;
-        padding: 1em;
-        margin-left: -17em;
-        /* Hack - same height of columns */
-        padding-bottom: 3000px;
-        margin-bottom: -3000px;
+        color: $text-color;
+        background: $sidebar-color; 
+        width: $sidebar-width;
+        padding: $fill;
+        margin-left: -($sidebar-width+$fill*2);
+        @include equal-height;
           
         form {
           display: block;
@@ -161,21 +185,21 @@ body {
           position: relative;
           left: -0.5em;
           
-          .field {             
+          &.field {             
             label {
               font-weight: bold;
               text-transform: uppercase;
             }
           
             input {
-              margin-top: 1em;
+              margin-top: $fill;
               width: 100%;
             }
           }
           
-          .actions {            
+          &.actions {            
             input {
-              margin-bottom: 1em;
+              margin-bottom: $fill;
               text-transform: uppercase;
             }            
           }
@@ -185,10 +209,10 @@ body {
     
     #footer { 
       clear: both;
-      background: #FFB273;
-      color: #333;
+      background: $footer-color;
+      color: $text-color;
       text-align: center;
-      padding: 1em;
+      padding: $fill;
     }
   }
 }
