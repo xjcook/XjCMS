@@ -3,7 +3,7 @@ class HomePageController < ApplicationController
 
   def index
     @page = Page.first
-    @stories = Story.all
+    @stories = Story.order("created_at DESC").all
 
     respond_to do |format|
       format.html # index.html.erb

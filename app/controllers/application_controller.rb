@@ -43,7 +43,7 @@ class ApplicationController < ActionController::Base
         if pages_right
           if hero_right || params[:id].nil? 
             return true
-          elsif Page.find_by_id(params[:id]).user.id == current_user.id
+          elsif Page.find(params[:id]).user.id == current_user.id
             return true
           end
         end
@@ -51,7 +51,7 @@ class ApplicationController < ActionController::Base
         if stories_right
           if hero_right || params[:id].nil? 
             return true
-          elsif Story.find_by_id(params[:id]).user.id == current_user.id
+          elsif Story.find(params[:id]).user.id == current_user.id
             return true
           end
         end
@@ -59,7 +59,7 @@ class ApplicationController < ActionController::Base
         if comments_right
           if hero_right || params[:id].nil? 
             return true
-          elsif Comment.find_by_id(params[:id]).user.id == current_user.id
+          elsif Comment.find(params[:id]).user.id == current_user.id
             return true
           end
         end
