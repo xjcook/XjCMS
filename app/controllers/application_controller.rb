@@ -20,37 +20,46 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-  def authorize
+  def authorize(options={})
     if current_user.nil?
       redirect_to login_path, :notice => "Please log in!"
+      return false
     end
-  end
-  
-  def check_rights(options={})
-    hero = current_user.role.permissions.where(:hero => true).exists?
 
+    hero_right     = current_user.role.permissions.where(:hero => true).exists?
+    pages_right    = current_user.role.permissions.where(:pages => true).exists?
+    stories_right  = current_user.role.permissions.where(:stories => true).exists?
+    comments_right = current_user.role.permissions.where(:comments => true).exists?
+
+    # Check rights
+    # 1. check section where we are
+    # 2. check if we have right to this section
+    # 3. check if user is hero -> can edit/destroy all posts
+    #                  or he is creating new post (doesn't have id)
+    #          else if user is author -> can edit/destroy own post
+    # if we have right then return true, else redirect to root_path and return false
     case options[:section]
       when :pages then
-        if hero 
-          return true
-        else
-          if Page.find_by_id(params[:id]).user.id == current_user.id
+        if pages_right
+          if hero_right || params[:id].nil? 
+            return true
+          elsif Page.find_by_id(params[:id]).user.id == current_user.id
             return true
           end
         end
       when :stories then
-        if hero 
-          return true
-        else
-          if Story.find_by_id(params[:id]).user.id == current_user.id
+        if stories_right
+          if hero_right || params[:id].nil? 
+            return true
+          elsif Story.find_by_id(params[:id]).user.id == current_user.id
             return true
           end
         end
       when :comments then
-        if hero 
-          return true
-        else
-          if Comment.find_by_id(params[:id]).user.id == current_user.id
+        if comments_right
+          if hero_right || params[:id].nil? 
+            return true
+          elsif Comment.find_by_id(params[:id]).user.id == current_user.id
             return true
           end
         end

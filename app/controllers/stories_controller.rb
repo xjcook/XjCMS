@@ -4,13 +4,12 @@ class StoriesController < ApplicationController
     c.class.module_eval do
     private
       def custom_filter
-        check_rights(:section => :stories)
+        authorize(:section => :stories)
       end
     end
   end
   
-  before_filter :authorize, :except => [:index, :show]
-  before_filter :custom_filter, :except => [:index, :show, :new, :create]
+  before_filter :custom_filter, :except => [:index, :show]
   
   # GET /stories
   # GET /stories.json
