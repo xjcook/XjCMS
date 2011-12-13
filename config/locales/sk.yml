@@ -10,4 +10,9 @@ sk:
   pages: "Stránky"
   stories: "Články"
   signup: "Registrácia"
+  login: "Prihlásiť"
+  login_form: "Užívateľ"
+  login_heading: "Prihlásenie"
+  logout: "Odhlásiť"
+  password: "Heslo"
 

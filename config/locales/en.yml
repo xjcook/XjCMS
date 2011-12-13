@@ -10,3 +10,8 @@ en:
   pages: "Pages"
   stories: "Stories"
   signup: "Signup"
+  login: "Login"
+  login_form: "User"
+  login_heading: "Log in"
+  logout: "Logout"
+  password: "Password"

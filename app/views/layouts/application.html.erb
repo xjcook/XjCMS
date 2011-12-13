@@ -11,17 +11,21 @@
   <div id="wrapper">
     <div id="header">
       <h1><%=t :year_project %></h1>
+      <%= link_to t(:skip_to_content), {}, :href => "#content", :class => "hide" %>
     </div>
     <div id="navigation">
       <ul>
-      <li><%= link_to t(:home), root_path %></li>
-      <li><%= link_to t(:pages), pages_path %></li>
-      <li><%= link_to t(:stories), stories_path %></li>
-      <li><%= link_to t(:signup), signup_path %></li>
+        <li><%= link_to t(:home), root_path %></li>
+        <li><%= link_to t(:pages), pages_path %></li>
+        <li><%= link_to t(:stories), stories_path %></li>
+        <li><%= link_to t(:signup), signup_path %></li>
+        <li><%= link_to t(:english), root_path(:locale => "en") %></li>
+        <li><%= link_to t(:slovak), root_path(:locale => "sk") %></li>
       </ul>
     </div>
     <div id="contentwrapper">
       <div id="main">
+        <a name="content" class="hide"><%=t :content %></a>
         <%= flash_messages.html_safe %>
         <%= yield %>
       </div>

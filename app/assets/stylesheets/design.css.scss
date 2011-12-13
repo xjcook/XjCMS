@@ -80,6 +80,13 @@ body {
       margin-bottom: $fill; 
     }
   }
+  
+  .hide {
+    display: none;
+    position: absolute;
+    top: -3000px;
+    left: -3000px;
+  }
 
   .field_with_errors {
     padding: $fill/5;
@@ -162,6 +169,7 @@ body {
         float: left;
         color: $text-color;
         background: $main-color;
+        width: 100%;
         min-width: $text-minwidth;
         max-width: $text-maxwidth;
         margin-right: $sidebar-width+$fill*2;

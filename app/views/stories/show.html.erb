@@ -1,16 +1,9 @@
-<p>
-  <b>Author:</b>
-  <%= @story.user.author %>
-</p>
-
-<p>
-  <b>Title:</b>
-  <%= @story.title %>
-</p>
-
-<p>
-  <b>Content:</b>
+<div class="story">
+  <h2><%= @story.title %></h2>
   <%= @story.content.html_safe %>
-</p>
-
-<%= link_to 'Edit', edit_story_path(@story) %>
+  <p>
+    <%= @story.user.author %> |
+    <%= link_to t(:edit), edit_story_path(@story) %> |
+    <%= link_to t(:destroy), @story, confirm: 'Are you sure?', method: :delete %>
+  </p>
+</div>
