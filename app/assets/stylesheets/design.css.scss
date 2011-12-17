@@ -1,10 +1,4 @@
 /** { padding: 0; margin: 0; }*/
-  
-@mixin equal-height {
-  /* CSS hack to get equal height of columns */
-  padding-bottom: 3000px;
-  margin-bottom: -3000px;
-}
 
 body {
   $back-color: #e8e8e8;
@@ -44,9 +38,11 @@ body {
   
   a {
     color: $text-color;
-    /*&:visited {
-      color: #666; 
-    }*/
+    
+    &:visited {
+      color: $text-color;
+    }
+    
     &:hover {
       color: #fff;
       background-color: #000; 
@@ -174,7 +170,6 @@ body {
         max-width: $text-maxwidth;
         margin-right: $sidebar-width+$fill*2;
         padding: 0 $fill*1.5;
-        @include equal-height;
       }
       
       #sidebar {
@@ -184,7 +179,6 @@ body {
         width: $sidebar-width;
         padding: $fill;
         margin-left: -($sidebar-width+$fill*2);
-        @include equal-height;
           
         form {
           display: block;
