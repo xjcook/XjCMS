@@ -10,13 +10,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       
+      # redirect to previous page if exists
       if session[:redirect_back].nil?
         redirect_to root_url, :notice => "Logged in!"
       else
         redirect_to session[:redirect_back], :notice => "Logged in!"
       end
     else
-      flash.now.alert = "Invalid email or password"
+      flash[:notice] = "Invalid email or password"
       render "new"
     end
   end

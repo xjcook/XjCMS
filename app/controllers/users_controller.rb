@@ -16,6 +16,7 @@ class UsersController < ApplicationController
   end
 
   def create   
+    # TODO security hole - can modify RoleID
     @role = Role.find(params[:user][:role_id])
     @user = User.new(params[:user])
     

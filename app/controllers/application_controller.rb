@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   helper :all
   helper_method :current_user
+  helper_method :has_right?
   before_filter :set_locale
   
   private
@@ -20,10 +21,8 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
-  def authorize(options={})
+  def has_right?(options={})
     if current_user.nil?
-      session[:redirect_back] = url_for(:only_path => false)
-      redirect_to login_path, :notice => "Please log in!"
       return false
     else
       hero_right     = current_user.role.permissions.where(:hero => true).exists?
@@ -65,8 +64,22 @@ class ApplicationController < ActionController::Base
           end
       end    
        
+      return false
+    end
+  end
+  
+  def authorize!(options={})
+    if current_user.nil?
+      session[:redirect_back] = url_for(:only_path => false)
+      redirect_to login_path, :notice => "Please log in!"
+      return false
+    elsif has_right?(options)
+      return true
+    else
       redirect_to root_path, :notice => "You don't have rights!"
       return false
     end
   end
+  
+
 end

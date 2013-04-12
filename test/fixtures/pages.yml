@@ -1,11 +1,11 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  author: MyString
-  title: MyString
-  content: MyText
-
-two:
-  author: MyString
-  title: MyString
-  content: MyText
+---
+pages_001:
+  id: '1'
+  title: Lorem Ipsum
+  content: |-
+    <p>
+      Quisque non nibh non felis sollicitudin ullamcorper. Vivamus in ligula vel massa dictum eleifend ac nec purus. Duis sagittis, massa at molestie faucibus, velit ante condimentum mi, non iaculis eros ipsum vel ipsum. Aliquam at iaculis ipsum. Donec malesuada tempus interdum. Donec cursus mollis nulla ac ultrices. Pellentesque ante neque, hendrerit vitae cursus ac, porttitor sed felis. Cras rutrum laoreet varius. Maecenas in eros et nisl adipiscing venenatis a eu mauris. Morbi vestibulum enim id urna dignissim eu luctus mauris aliquam. Phasellus nec leo sed eros cursus consequat a sed est. Quisque sollicitudin cursus eros sit amet suscipit. Mauris mattis vulputate ipsum, vel varius velit interdum vitae.</p>
+      <p>Integer quis justo lectus, eget lobortis nisi. Integer at velit sed metus gravida congue. Suspendisse condimentum, urna sit amet facilisis consectetur, turpis odio mattis est, sit amet ultricies est quam pellentesque nunc. Mauris mollis tortor vitae dui congue ultrices. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Cras sed magna vel turpis eleifend interdum. Nullam luctus sem vel est bibendum elementum. Phasellus mi velit, scelerisque sed blandit et, posuere eu mauris. Maecenas lacinia lectus non nulla viverra in cursus dolor pharetra. Donec pharetra nunc sed tellus ultricies in pretium purus pellentesque.</p>
+  created_at: '2013-03-05 09:31:18.352778'
+  updated_at: '2013-03-05 09:31:18.352778'
+  user_id: '1'

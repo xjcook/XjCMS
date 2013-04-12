@@ -4,7 +4,7 @@ class StoriesController < ApplicationController
     c.class.module_eval do
     private
       def custom_filter
-        authorize(:section => :stories)
+        authorize!(:section => :stories)
       end
     end
   end

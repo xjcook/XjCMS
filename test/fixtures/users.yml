@@ -1,15 +1,56 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  login: MyString
-  password_digest: MyString
-  firstname: MyString
-  lastname: MyString
-  email: MyString
-
-two:
-  login: MyString
-  password_digest: MyString
-  firstname: MyString
-  lastname: MyString
-  email: MyString
+---
+users_001:
+  id: '1'
+  login: admin
+  password_digest: $2a$10$R/IBAm8e.uZxRyUrFLzMRuI.IWPu21WnUMUdwImphD8NrLizB.b4W
+  firstname: Ondrej
+  lastname: Danko
+  email: admin@xjcook.net
+  created_at: '2013-03-05 09:31:17.945347'
+  updated_at: '2013-03-05 09:31:17.945347'
+  role_id: '1'
+  author: Ondrej Danko
+users_002:
+  id: '2'
+  login: redactor
+  password_digest: $2a$10$PNVlBWEAPF/aWIndWvL8Le.3KCpUbCfJ/mPy77eG1NMgxyuBbYt1e
+  firstname: Janko
+  lastname: Hrasko
+  email: redactor@xjcook.net
+  created_at: '2013-03-05 09:31:18.100772'
+  updated_at: '2013-03-05 09:31:18.100772'
+  role_id: '2'
+  author: Janko Hrasko
+users_003:
+  id: '3'
+  login: user
+  password_digest: $2a$10$Xi/PW4Kan5Zfn9qHRKt6yehyf68psW88gJ.biZSuJ5FZle41Nv49G
+  firstname: Marienka
+  lastname: Hraskova
+  email: user@xjcook.net
+  created_at: '2013-03-05 09:31:18.192136'
+  updated_at: '2013-03-05 09:31:18.192136'
+  role_id: '3'
+  author: Marienka Hraskova
+users_004:
+  id: '4'
+  login: guest
+  password_digest: $2a$10$ZQqEEwVw8w2svMvYGiV1C.yx9htvMhurpke7s8cvqmK0KSXTwRAFW
+  firstname: Duch
+  lastname: Marienky
+  email: guest@xjcook.net
+  created_at: '2013-03-05 09:31:18.287392'
+  updated_at: '2013-03-05 09:31:18.287392'
+  role_id: '4'
+  author: Duch Marienky
+users_005:
+  id: '5'
+  login: testX
+  password_digest: $2a$10$4pKuWRHJyY4I22atijioduzLc6bAFCQFB1caPkQFxrOeGEcOjy60C
+  firstname: Ondrej
+  lastname: Danko
+  email: xjcook@gmail.com
+  created_at: '2013-04-09 08:58:26.436921'
+  updated_at: '2013-04-09 08:58:26.436921'
+  role_id: '3'
+  author: Ondrej Danko

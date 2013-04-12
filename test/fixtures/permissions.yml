@@ -1,13 +1,33 @@
-# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
-
-one:
-  users: false
-  pages: false
-  stories: false
-  commments: false
-
-two:
-  users: false
-  pages: false
-  stories: false
-  commments: false
+---
+permissions_001:
+  id: '1'
+  hero: t
+  pages: t
+  stories: t
+  comments: t
+  created_at: '2013-03-05 09:31:17.701687'
+  updated_at: '2013-03-05 09:31:17.701687'
+permissions_002:
+  id: '2'
+  hero: t
+  pages: f
+  stories: t
+  comments: t
+  created_at: '2013-03-05 09:31:17.736027'
+  updated_at: '2013-03-05 09:31:17.736027'
+permissions_003:
+  id: '3'
+  hero: f
+  pages: f
+  stories: t
+  comments: t
+  created_at: '2013-03-05 09:31:17.751372'
+  updated_at: '2013-03-05 09:31:17.751372'
+permissions_004:
+  id: '4'
+  hero: f
+  pages: f
+  stories: f
+  comments: t
+  created_at: '2013-03-05 09:31:17.767738'
+  updated_at: '2013-03-05 09:31:17.767738'
