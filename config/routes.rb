@@ -1,5 +1,7 @@
 # -*- encoding : utf-8 -*-
 CMS::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
+
   scope "(:locale)", :locale => /en|sk/ do
     resources :sessions
     resources :users      

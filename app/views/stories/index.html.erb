@@ -1,13 +1,15 @@
 <h1>Listing stories</h1>
 
-<%= link_to 'New Story', new_story_path %>
+<% if has_right? %>
+    <%= link_to 'New Story', new_story_path %>
+<% end %>
 
 <% @stories.each do |story| %>
     <h2><%= link_to story.title, story %></h2>
     <%= story.content.html_safe %>
     <p>
       <%= story.user.author %>
-      <% if has_right?(:section => :stories) %>
+      <% if has_right? %>
         | <%= link_to 'Edit', edit_story_path(story) %>
         | <%= link_to 'Destroy', story, confirm: 'Are you sure?', method: :delete %>
       <% end %>

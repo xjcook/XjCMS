@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
   helper_method :has_right?
   before_filter :set_locale
+  before_filter :authorize!
   
   private
   
@@ -29,7 +30,7 @@ class ApplicationController < ActionController::Base
       pages_right    = current_user.role.permissions.where(:pages => true).exists?
       stories_right  = current_user.role.permissions.where(:stories => true).exists?
       comments_right = current_user.role.permissions.where(:comments => true).exists?
-  
+
       # Check rights
       # 1. check section where we are
       # 2. check if we have right to this section
@@ -37,8 +38,8 @@ class ApplicationController < ActionController::Base
       #                  or he is creating new post (doesn't have id)
       #          else if user is author -> can edit/destroy own post
       # if we have right then return true, else redirect to root_path and return false
-      case options[:section]
-        when :pages then
+      case params[:controller]
+        when "pages" then
           if pages_right
             if hero_right || params[:id].nil? 
               return true
@@ -46,7 +47,7 @@ class ApplicationController < ActionController::Base
               return true
             end
           end
-        when :stories then
+        when "stories" then
           if stories_right
             if hero_right || params[:id].nil? 
               return true
@@ -54,7 +55,7 @@ class ApplicationController < ActionController::Base
               return true
             end
           end
-        when :comments then
+        when "comments" then
           if comments_right
             if hero_right || params[:id].nil? 
               return true
@@ -68,14 +69,15 @@ class ApplicationController < ActionController::Base
     end
   end
   
-  def authorize!(options={})
+  def authorize!
     if current_user.nil?
       session[:redirect_back] = url_for(:only_path => false)
       redirect_to login_path, :notice => "Please log in!"
       return false
-    elsif has_right?(options)
+    elsif has_right?
       return true
     else
+      session[:redirect_back] = nil
       redirect_to root_path, :notice => "You don't have rights!"
       return false
     end

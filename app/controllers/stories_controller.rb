@@ -1,15 +1,6 @@
 # -*- encoding : utf-8 -*-
 class StoriesController < ApplicationController
-  before_filter do |c|
-    c.class.module_eval do
-    private
-      def custom_filter
-        authorize!(:section => :stories)
-      end
-    end
-  end
-  
-  before_filter :custom_filter, :except => [:index, :show]
+  skip_before_filter :authorize!, :only => [:index, :show]
   
   # GET /stories
   # GET /stories.json
