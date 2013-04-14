@@ -10,7 +10,7 @@
   <% @stories.each do |story| %>
   	<div class="story">
   		<h2><%= link_to story.title, story %></h2>
-  		<%= story.content.html_safe %>
+  		<%= (Truncato.truncate story.content, :max_length => 300).html_safe %>
   	</div>
   <% end %>
 <% end %>

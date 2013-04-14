@@ -24,6 +24,9 @@ gem 'magic_encoding'
 gem 'paperclip'
 gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
 
+# My gems
+gem 'truncato'
+
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
