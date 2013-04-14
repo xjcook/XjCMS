@@ -1,7 +1,7 @@
 # -*- encoding : utf-8 -*-
 module ApplicationHelper
   def flash_messages
-    f_names = [:notice, :warning, :message]
+    f_names = [:notice, :warning, :message, :alert]
     fl = ''
   
     for name in f_names

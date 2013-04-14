@@ -1,9 +1,11 @@
 <div class="page">
   <h2><%= @page.title %></h2>
   <%= @page.content.html_safe %>
-  <p>
-    <%= @page.user.author %> |
-    <%= link_to t(:edit), edit_page_path(@page) %> |
-    <%= link_to t(:destroy), @page, confirm: 'Are you sure?', method: :delete %>
-  </p>
+  <% if has_right?(:id => @page.id) %>
+    <p>
+      <em><%= @page.user.author %></em>
+      | <%= link_to t(:edit), edit_page_path(@page) %>
+      | <%= link_to t(:destroy), @page, confirm: t(:are_you_sure), method: :delete %>
+    </p>
+  <% end %>
 </div>

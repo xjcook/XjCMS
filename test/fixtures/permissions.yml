@@ -1,5 +1,5 @@
 ---
-permissions_001:
+admin:
   id: '1'
   hero: t
   pages: t
@@ -7,7 +7,7 @@ permissions_001:
   comments: t
   created_at: '2013-03-05 09:31:17.701687'
   updated_at: '2013-03-05 09:31:17.701687'
-permissions_002:
+redactor:
   id: '2'
   hero: t
   pages: f
@@ -15,7 +15,7 @@ permissions_002:
   comments: t
   created_at: '2013-03-05 09:31:17.736027'
   updated_at: '2013-03-05 09:31:17.736027'
-permissions_003:
+user:
   id: '3'
   hero: f
   pages: f
@@ -23,7 +23,7 @@ permissions_003:
   comments: t
   created_at: '2013-03-05 09:31:17.751372'
   updated_at: '2013-03-05 09:31:17.751372'
-permissions_004:
+guest:
   id: '4'
   hero: f
   pages: f

@@ -2,8 +2,10 @@
   <h2><%= @story.title %></h2>
   <%= @story.content.html_safe %>
   <p>
-    <%= @story.user.author %> |
-    <%= link_to t(:edit), edit_story_path(@story) %> |
-    <%= link_to t(:destroy), @story, confirm: 'Are you sure?', method: :delete %>
+    <em><%= @story.user.author %></em>
+    <% if has_right?(:id => @story.id) %>
+      | <%= link_to t(:edit), edit_story_path(@story) %>
+      | <%= link_to t(:destroy), @story, confirm: t(:are_you_sure), method: :delete %>
+    <% end %>
   </p>
 </div>

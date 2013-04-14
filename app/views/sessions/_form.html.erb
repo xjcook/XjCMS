@@ -12,6 +12,8 @@
 	    <%= submit_tag t(:login) %>
     </div>
 	<% end %>
+    <%= link_to t(:signup), signup_path %>
 <% else %>
+    <%=t :logged_user %> <strong><%= current_user.login %></strong>
 	<%= button_to t(:logout), logout_path, :method => :delete %>
 <% end %>

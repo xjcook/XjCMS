@@ -11,14 +11,14 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       
-      # redirect to previous page if exists
+      # redirect to previous page
       if session[:redirect_back].nil?
-        redirect_to root_url, :notice => "Logged in!"
+        redirect_to :back, :notice => t(:logged_in)
       else
-        redirect_to session[:redirect_back], :notice => "Logged in!"
+        redirect_to session[:redirect_back], :notice => t(:logged_in)
       end
     else
-      flash[:notice] = "Invalid email or password"
+      flash[:notice] = t(:invalid_login)
       render "new"
     end
   end
@@ -26,6 +26,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     session[:redirect_back] = nil
-    redirect_to root_url, :notice => "Logged out!"
+    redirect_to root_url, :notice => t(:logged_out)
   end
 end

@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def new
     if current_user.nil?
+      # create first user with admin rights
       if User.first.nil?
         @role = Role.find_by_name("admin")
       else
@@ -12,7 +13,7 @@ class UsersController < ApplicationController
       end
       @user = User.new
     elsif
-      redirect_to root_path, :notice => "You are already signed!"
+      redirect_to root_path, :notice => t(:signed_already)
     end
   end
 
@@ -22,7 +23,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     
     if @user.save
-      redirect_to root_path, :notice => "Signed up!"
+      redirect_to root_path, :notice => t(:signed_up)
     else
       render "new"
     end

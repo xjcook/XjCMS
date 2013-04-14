@@ -22,15 +22,26 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
   
+  def authorize!
+    if has_right?
+      return true
+    else
+      if current_user.nil?
+        session[:redirect_back] = url_for(:only_path => false)
+        redirect_to login_path, :notice => t(:please_login)
+        return false
+      else
+        session[:redirect_back] = nil
+        redirect_to root_path, :notice => t(:wrong_rights)
+        return false
+      end
+    end
+  end
+  
   def has_right?(options={})
     if current_user.nil?
       return false
     else
-      hero_right     = current_user.role.permissions.where(:hero => true).exists?
-      pages_right    = current_user.role.permissions.where(:pages => true).exists?
-      stories_right  = current_user.role.permissions.where(:stories => true).exists?
-      comments_right = current_user.role.permissions.where(:comments => true).exists?
-
       # Check rights
       # 1. check section where we are
       # 2. check if we have right to this section
@@ -38,50 +49,54 @@ class ApplicationController < ActionController::Base
       #                  or he is creating new post (doesn't have id)
       #          else if user is author -> can edit/destroy own post
       # if we have right then return true, else redirect to root_path and return false
+      
+      # set post id
+      if !params[:id].nil? 
+        id = params[:id]
+      elsif !options[:id].nil?
+        id = options[:id]
+      else
+        id = nil
+      end
+      
+      # if user is hero can edit foreign posts
+      hero_right = current_user.role.permissions.where(:hero => true).exists?
+      
       case params[:controller]
-        when "pages" then
+        when "pages"
+          pages_right = current_user.role.permissions.where(:pages => true).exists?
+          
           if pages_right
-            if hero_right || params[:id].nil? 
+            if hero_right || id.nil? 
               return true
-            elsif Page.find(params[:id]).user.id == current_user.id
+            elsif Page.find(id).user.id == current_user.id
               return true
             end
           end
-        when "stories" then
+        when "stories"
+          stories_right = current_user.role.permissions.where(:stories => true).exists?
+          
           if stories_right
-            if hero_right || params[:id].nil? 
+            if hero_right || id.nil?
               return true
-            elsif Story.find(params[:id]).user.id == current_user.id
+            elsif Story.find(id).user.id == current_user.id
               return true
             end
           end
-        when "comments" then
+        when "comments"
+          comments_right = current_user.role.permissions.where(:comments => true).exists?
+          
           if comments_right
-            if hero_right || params[:id].nil? 
+            if hero_right || id.nil? 
               return true
-            elsif Comment.find(params[:id]).user.id == current_user.id
+            elsif Comment.find(id).user.id == current_user.id
               return true
             end
           end
-      end    
-       
-      return false
+      else
+        return false
+      end 
     end
   end
   
-  def authorize!
-    if current_user.nil?
-      session[:redirect_back] = url_for(:only_path => false)
-      redirect_to login_path, :notice => "Please log in!"
-      return false
-    elsif has_right?
-      return true
-    else
-      session[:redirect_back] = nil
-      redirect_to root_path, :notice => "You don't have rights!"
-      return false
-    end
-  end
-  
-
 end
