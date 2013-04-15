@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :content %><br />
-    <%= f.cktext_area :content, :toolbar => 'Full', :height => '30em' %>
+    <%= f.cktext_area :content, :ckeditor => {:toolbar => 'Full'} %>
   </div>
   <div class="actions">
     <%= f.submit %>

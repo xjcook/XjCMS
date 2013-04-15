@@ -5,10 +5,6 @@ gem 'rails', '3.2.12'
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
-# Database
-gem 'pg'
-#gem 'hairtrigger'
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -17,14 +13,26 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :test do
+  # Pretty printed test output
+  gem 'turn', :require => false
+end
+
+# Database
+gem 'pg'
+#gem 'hairtrigger'
+
 gem 'jquery-rails'
 gem 'execjs'
 #gem 'therubyracer'
+
 gem 'magic_encoding'
+
+# ck editor
 gem 'paperclip'
 gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
 
-# My gems
+# truncate html
 gem 'truncato'
 
 # To use ActiveModel has_secure_password
@@ -39,7 +47,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
 
-group :test do
-  # Pretty printed test output
-  gem 'turn', :require => false
-end
