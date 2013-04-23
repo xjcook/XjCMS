@@ -1,0 +1,11 @@
+<div class="user">
+  <h2><%= @user.login %></h2>
+  <ul>
+    <li><%= @user.author %></li>
+    <li><%= @user.role.name %></li>
+    <li><%= @user.created_at.strftime(t(:date_format)) %></li>
+  </ul>
+  
+  <%= link_to t(:edit), edit_user_path(@user) %> |
+  <%= link_to t(:destroy), @user, confirm: t(:are_you_sure), method: :delete %>
+</div>

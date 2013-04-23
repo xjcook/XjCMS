@@ -1,0 +1,23 @@
+<h1>Listing users</h1>
+
+<%= link_to t(:new_user), new_user_path %>
+
+<table>
+  <tr>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Role</th>
+    <th>Created</th>
+    <th>Action</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= link_to user.login, user %></td>
+      <td><%= user.author %></td>
+      <td><%= user.role.name %></td>
+      <td><%= user.created_at.strftime(t(:date_format)) %></td>
+      <td><%= link_to t(:edit), edit_user_path(user) %></td>
+      <td><%= link_to t(:destroy), user, confirm: t(:are_you_sure), method: :delete %></td>
+    </tr>
+  <% end %>
+</table>
