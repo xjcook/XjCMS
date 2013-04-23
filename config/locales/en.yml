@@ -1,6 +1,6 @@
 en:
   hello: "Hello world"
-  role: "role"
+  role: "Role"
   admin: "administrator"
   user: "user"
   cms: "Content management system"
@@ -42,3 +42,10 @@ en:
   user_created: "Successfully created"
   user_updated: "Successfully updated"
   date_format: "%Y-%m-%d"
+  email: "E-mail"
+  listing_users: "Listing users"
+  new_user: "New user"
+  created: Created
+  action: Action
+  name: Name
+  users: Users

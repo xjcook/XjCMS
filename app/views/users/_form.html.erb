@@ -22,9 +22,15 @@
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label :email %>
+    <%= f.label t(:email) %>
     <%= f.text_field :email %>
   </div>
+  <% if has_right? %>
+    <div class="field">
+      <%= f.label t(:role) %>
+      <%= collection_select(:user, :role_id, Role.all, :id, :name) %>
+    </div>
+  <% end %>
   <div class="field">
     <%= f.label t(:password) %>
     <%= f.password_field :password %>

@@ -1,6 +1,6 @@
 sk:
   hello: "Ahoj svet"
-  role: "roľa"
+  role: "Rola"
   admin: "administrátor"
   user: "používateľ"
   cms: "Redakčný systém (CMS)"
@@ -42,3 +42,10 @@ sk:
   user_created: "Úspešne vytvorené"
   user_updated: "Úspešne aktualizované"
   date_format: "%d.%m.%Y"
+  email: "E-mail"
+  listing_users: "Zoznam užívateľov"
+  new_user: Nový používateľ
+  created: Vytvorené
+  action: Akcia
+  name: Meno
+  users: Používatelia

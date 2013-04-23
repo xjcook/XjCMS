@@ -1,14 +1,14 @@
-<h1>Listing users</h1>
+<h1><%=t :listing_users %></h1>
 
 <%= link_to t(:new_user), new_user_path %>
 
 <table>
   <tr>
-    <th>Login</th>
-    <th>Name</th>
-    <th>Role</th>
-    <th>Created</th>
-    <th>Action</th>
+    <th><%=t :loginname %></th>
+    <th><%=t :name %></th>
+    <th><%=t :role %></th>
+    <th><%=t :created %></th>
+    <th><%=t :action %></th>
   </tr>
   <% @users.each do |user| %>
     <tr>

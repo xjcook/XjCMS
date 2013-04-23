@@ -65,12 +65,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if @user.update_attributes(params[:user])
+      if has_right? && @user.update_attributes(params[:user], :as => :hero) || 
+                       @user.update_attributes(params[:user])
+      #if @user.update_attributes(params[:user])
         format.html { redirect_to @user, notice: t(:user_updated) }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.json { render json: @user.errors, status: :unprocessable_entity } 
       end
     end
   end
