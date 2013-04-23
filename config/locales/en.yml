@@ -39,3 +39,5 @@ en:
   firstname: "Firstname"
   lastname: "Lastname"
   loginname: "Login"
+  user_created: "Successfully created"
+  user_updated: "Successfully updated"

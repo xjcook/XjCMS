@@ -39,3 +39,5 @@ sk:
   firstname: "Krstné meno"
   lastname: "Priezvisko"
   loginname: "Užívateľské meno"
+  user_created: "Úspešne vytvorené"
+  user_updated: "Úspešne aktualizované"

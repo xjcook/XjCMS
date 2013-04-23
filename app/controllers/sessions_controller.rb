@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def new
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render nothing: true }
+      format.json { head :ok }
     end
   end
 
@@ -28,6 +28,7 @@ class SessionsController < ApplicationController
     end
   end
 
+  # TODO respond_to
   def destroy
     session[:user_id] = nil
     session[:redirect_back] = nil

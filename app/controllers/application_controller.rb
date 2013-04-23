@@ -93,6 +93,12 @@ class ApplicationController < ActionController::Base
               return true
             end
           end
+        when "users"
+          if hero_right 
+            return true
+          elsif id != nil && User.find(id).id == current_user.id
+            return true
+          end
       else
         return false
       end 
