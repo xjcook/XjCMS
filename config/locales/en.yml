@@ -34,4 +34,8 @@ en:
   are_you_sure: "Are you sure?"
   show: "Show"
   back: "Back"
-  
+  submit_user: "Register"
+  password_confirmation: "Password confirmation"
+  firstname: "Firstname"
+  lastname: "Lastname"
+  loginname: "Login"

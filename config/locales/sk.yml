@@ -34,3 +34,8 @@ sk:
   are_you_sure: "Ste si istý?"
   show: "Zobraz"
   back: "Späť"
+  submit_user: "Registrovať"
+  password_confirmation: "Potvrdenie hesla"
+  firstname: "Krstné meno"
+  lastname: "Priezvisko"
+  loginname: "Užívateľské meno"

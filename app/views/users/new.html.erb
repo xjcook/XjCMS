@@ -11,30 +11,29 @@
       </ul>
     </div>
   <% end %>
-  <%= f.hidden_field :role_id, :value => @role.id  %>
   <div class="field">
-    <%= f.label :login %>
+    <%= f.label t(:loginname) %>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="field">
-    <%= f.label :firstname %>
+    <%= f.label t(:firstname) %>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label :lastname %>
+    <%= f.label t(:lastname) %>
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
     <%= f.label :email %>
     <%= f.text_field :email %>
   </div>
-  <div class="actions"><%= f.submit %></div>
+  <div class="field">
+    <%= f.label t(:password) %>
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label t(:password_confirmation) %>
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions"><%= f.submit t(:submit_user) %></div>
 <% end %>

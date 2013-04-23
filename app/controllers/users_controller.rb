@@ -1,31 +1,40 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
   skip_before_filter :authorize!
-  # TODO respond_to
 
   def new
-    if current_user.nil?
-      # create first user with admin rights
-      if User.first.nil?
-        @role = Role.find_by_name("admin")
+    @user = User.new
+    
+    respond_to do |format|
+      if current_user.nil?
+        # create first user with admin rights
+        if User.first.nil?
+          @role = Role.find_by_name("admin")
+        else
+          @role = Role.find_by_name("user")
+        end
+        
+        format.html # new.html.erb
+        format.json { render json: @user }
       else
-        @role = Role.find_by_name("user")
+        format.html { redirect_to root_path, notice: t(:signed_already) }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
       end
-      @user = User.new
-    elsif
-      redirect_to root_path, :notice => t(:signed_already)
     end
   end
 
   def create   
-    # TODO security hole - can modify RoleID
-    @role = Role.find(params[:user][:role_id])
+    @role = Role.find_by_name("user")
     @user = User.new(params[:user])
     
-    if @user.save
-      redirect_to root_path, :notice => t(:signed_up)
-    else
-      render "new"
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to root_path, notice: t(:signed_up) }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
     end
   end 
 end

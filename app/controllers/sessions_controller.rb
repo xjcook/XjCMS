@@ -1,13 +1,18 @@
 # -*- encoding : utf-8 -*-
 class SessionsController < ApplicationController
   skip_before_filter :authorize!
-  # TODO respond_to
 
   def new
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render nothing: true }
+    end
   end
 
+  # TODO respond_to
   def create
     user = User.find_by_login(params[:login])
+    
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       
