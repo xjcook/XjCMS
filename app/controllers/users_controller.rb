@@ -21,16 +21,17 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
-    
     respond_to do |format|
       if current_user.nil?
+        @user = User.new
+        
+        # TODO Assign to first user administrator role
         # create first user with admin rights
-        if User.first.nil?
-          @role = Role.find_by_name("admin")
-        else
-          @role = Role.find_by_name("user")
-        end
+        #if User.first.nil?
+        #  @user.role = Role.find_by_name("admin")
+        #else
+        #  @user.role = Role.find_by_name("user")
+        #end
         
         format.html # new.html.erb
         format.json { render json: @user }
@@ -46,8 +47,8 @@ class UsersController < ApplicationController
   end
 
   def create   
-    @role = Role.find_by_name("user")
     @user = User.new(params[:user])
+    @user.role = Role.find_by_name("user")
     
     respond_to do |format|
       if @user.save

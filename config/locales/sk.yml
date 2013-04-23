@@ -41,3 +41,4 @@ sk:
   loginname: "Užívateľské meno"
   user_created: "Úspešne vytvorené"
   user_updated: "Úspešne aktualizované"
+  date_format: "%d.%m.%Y"

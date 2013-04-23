@@ -41,3 +41,4 @@ en:
   loginname: "Login"
   user_created: "Successfully created"
   user_updated: "Successfully updated"
+  date_format: "%d.%m.%Y"

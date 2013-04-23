@@ -1,39 +1,7 @@
 <h1><%=t :signup %></h1>
 
-<%= form_for @user do |f| %>
-  <% if @user.errors.any? %>
-    <div class="error_messages">
-      <h2><%=t :form_is_invalid %></h2>
-      <ul>
-        <% for message in @user.errors.full_messages %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-  <div class="field">
-    <%= f.label t(:loginname) %>
-    <%= f.text_field :login %>
-  </div>
-  <div class="field">
-    <%= f.label t(:firstname) %>
-    <%= f.text_field :firstname %>
-  </div>
-  <div class="field">
-    <%= f.label t(:lastname) %>
-    <%= f.text_field :lastname %>
-  </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label t(:password) %>
-    <%= f.password_field :password %>
-  </div>
-  <div class="field">
-    <%= f.label t(:password_confirmation) %>
-    <%= f.password_field :password_confirmation %>
-  </div>
-  <div class="actions"><%= f.submit t(:submit_user) %></div>
+<%= render 'form' %>
+
+<% if has_right? %>
+    <%= link_to t(:back), pages_path %>
 <% end %>
