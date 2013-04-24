@@ -20,40 +20,36 @@ redactor = Role.create(:name => "redactor")
 user = Role.create(:name => "user")
 guest = Role.create(:name => "guest")
 
-admin.permissions.create(:hero => true, :pages => true, :stories => true, :comments => true)
-redactor.permissions.create(:hero => true, :pages => false, :stories => true, :comments => true)
-user.permissions.create(:hero => false, :pages => false, :stories => true, :comments => true)
-guest.permissions.create(:hero => false, :pages => false, :stories => false, :comments => true)
+admin.permissions.create(:hero => true, :pages => true, :stories => true, :comments => true, :users => true)
+redactor.permissions.create(:hero => true, :pages => false, :stories => true, :comments => true, :users => false)
+user.permissions.create(:hero => false, :pages => false, :stories => true, :comments => true, :users => false)
+guest.permissions.create(:hero => false, :pages => false, :stories => false, :comments => true, :users => false)
 
 # Fill users
-admin = User.create(:login => "admin",
+admin = User.create({ :login => "admin",
   :password => "admin",
   :email => "admin@xjcook.net",
   :firstname => "Ondrej",
   :lastname => "Danko",
-  :role => admin
-)
-redactor = User.create(:login => "redactor", 
+  :role => admin }, :without_protection => true)
+redactor = User.create({ :login => "redactor", 
   :password => "redactor",
   :email => "redactor@xjcook.net",
   :firstname => "Janko",
   :lastname => "Hrasko",
-  :role => redactor
-)
-user = User.create(:login => "user",  
+  :role => redactor }, :without_protection => true)
+user = User.create({ :login => "user",  
   :password => "user",
   :email => "user@xjcook.net",
   :firstname => "Marienka",
   :lastname => "Hraskova",
-  :role => user
-)
-guest = User.create(:login => "guest",  
+  :role => user }, :without_protection => true)
+guest = User.create({ :login => "guest",  
   :password => "guest",
   :email => "guest@xjcook.net",
   :firstname => "Duch",
   :lastname => "Marienky",
-  :role => guest
-)
+  :role => guest }, :without_protection => true)
 
 # Fill stories
 Story.create(:user => redactor,

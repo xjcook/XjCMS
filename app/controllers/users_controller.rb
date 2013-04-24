@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
-      if is_hero?
+      if is_admin?
         if @user.update_attributes(params[:user], :as => :hero)
           format.html { redirect_to @user, notice: t(:user_updated) }
           format.json { head :ok }

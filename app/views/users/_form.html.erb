@@ -25,7 +25,7 @@
     <%= f.label t(:email) %>
     <%= f.text_field :email %>
   </div>
-  <% if is_hero? %>
+  <% if is_admin? %>
     <div class="field">
       <%= f.label t(:role) %>
       <%= collection_select(:user, :role_id, Role.all, :id, :name) %>
