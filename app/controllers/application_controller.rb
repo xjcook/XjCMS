@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
   helper :all
   helper_method :current_user
   helper_method :has_right?
+  helper_method :is_hero?
   before_filter :set_locale
   before_filter :authorize!
   
@@ -93,7 +94,7 @@ class ApplicationController < ActionController::Base
               return true
             end
           end
-        when "users"
+        when "users" # TODO users_right
           if hero_right 
             return true
           elsif id != nil && User.find(id).id == current_user.id
@@ -105,4 +106,17 @@ class ApplicationController < ActionController::Base
     end
   end
   
+  def is_hero?
+    if current_user.nil?
+      return false
+    else
+      hero_right = current_user.role.permissions.where(:hero => true).exists?
+      
+      if hero_right 
+        return true
+      else
+        return false
+      end
+    end
+  end
 end
