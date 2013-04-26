@@ -1,11 +1,11 @@
-<h1>Listing pages</h1>
+<h2>Listing pages</h2>
 
 <% if has_right? %>
     <%= link_to t(:new_page), new_page_path %>
 <% end %>
 
 <% @pages.each do |page| %>
-    <h2><%= link_to page.title, page %></h2>
+    <h3><%= link_to page.title, page %></h3>
     <%= page.content.html_safe %>
     <% if has_right?(:id => page.id) %>
       <p>

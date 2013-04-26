@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if is_admin?
-        if @user.update_attributes(params[:user], :as => :hero)
+        if @user.update_attributes(params[:user], :as => :admin)
           format.html { redirect_to @user, notice: t(:user_updated) }
           format.json { head :ok }
         else

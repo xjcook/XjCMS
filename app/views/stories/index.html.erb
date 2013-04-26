@@ -1,11 +1,11 @@
-<h1>Listing stories</h1>
+<h2>Listing stories</h2>
 
 <% if has_right? %>
     <%= link_to t(:new_story), new_story_path %>
 <% end %>
 
 <% @stories.each do |story| %>
-    <h2><%= link_to story.title, story %></h2>
+    <h3><%= link_to story.title, story %></h3>
     <%= (Truncato.truncate story.content, :max_length => 300).html_safe %>
     <p>
       <em><%= story.user.author %></em>
