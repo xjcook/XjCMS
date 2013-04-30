@@ -44,6 +44,7 @@ sk:
   date_format: "%d.%m.%Y"
   email: "E-mail"
   listing_users: "Zoznam užívateľov"
+  editing_user: "Úprava užívateľa"
   new_user: Nový používateľ
   created: Vytvorené
   action: Akcia
@@ -52,3 +53,11 @@ sk:
   settings: Nastavenia
   english: English
   slovak: Slovenčina
+  listing_stories: Zoznam článkov
+  editing_story: Úprava článku
+  new_story: Nový článok
+  listing_pages: Zoznam stránok
+  editing_page: Úprava stránky
+  new_page: Nová stránka
+  title: Názov
+  content: Obsah

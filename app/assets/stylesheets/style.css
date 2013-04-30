@@ -204,6 +204,19 @@
 			border-top: none;
 		}
 		
+  /* by XjCook */
+ 
+  table 
+  {
+    width: 100%;
+  }
+  
+  th
+  {
+    text-align: left;
+    font-weight: bold;
+  }
+ 
   .notice
   {
     border: 1px solid #38C3FF;

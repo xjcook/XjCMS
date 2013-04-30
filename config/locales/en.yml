@@ -44,6 +44,7 @@ en:
   date_format: "%Y-%m-%d"
   email: "E-mail"
   listing_users: "Listing users"
+  editing_user: "Editing user"
   new_user: "New user"
   created: Created
   action: Action
@@ -52,3 +53,11 @@ en:
   settings: Settings
   english: English
   slovak: Slovenčina
+  listing_stories: Listing stories
+  editing_story: Editing story
+  new_story: New story
+  listing_pages: Listing pages
+  editing_page: Editing page
+  new_page: New page
+  title: Title
+  content: Content
