@@ -10,33 +10,33 @@
     </div>
   <% end %>
   <div class="field">
-    <%= f.label t(:loginname) %>
+    <%= f.label :login, t(:loginname) %>
     <%= f.text_field :login %>
   </div>
   <div class="field">
-    <%= f.label t(:firstname) %>
+    <%= f.label :firstname, t(:firstname) %>
     <%= f.text_field :firstname %>
   </div>
   <div class="field">
-    <%= f.label t(:lastname) %>
+    <%= f.label :lastname, t(:lastname) %>
     <%= f.text_field :lastname %>
   </div>
   <div class="field">
-    <%= f.label t(:email) %>
+    <%= f.label :email, t(:email) %>
     <%= f.text_field :email %>
   </div>
   <% if is_admin? %>
     <div class="field">
-      <%= f.label t(:role) %>
+      <%= f.label :role, t(:role) %>
       <%= collection_select(:user, :role_id, Role.all, :id, :name) %>
     </div>
   <% end %>
   <div class="field">
-    <%= f.label t(:password) %>
+    <%= f.label :password, t(:password) %>
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label t(:password_confirmation) %>
+    <%= f.label :password_confirmation, t(:password_confirmation) %>
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions"><%= f.submit %></div>

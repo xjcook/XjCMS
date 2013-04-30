@@ -1,10 +1,10 @@
 <% if session[:user_id].nil? %>
 	<%= form_tag sessions_path do %>
-	  <div class="field">
+	  <div class="field_login">
 	    <%= label_tag :login, t(:login_form) %>
 	    <%= text_field_tag :login, params[:login] %>
 	  </div>
-	  <div class="field">
+	  <div class="field_login">
 	    <%= label_tag :password, t(:password) %>
 	    <%= password_field_tag :password %>
 	  </div>

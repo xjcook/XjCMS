@@ -12,11 +12,11 @@
   <% end %>
   <%= f.hidden_field :user_id, :value => current_user.id %>
   <div class="field">
-    <%= f.label t(:title) %><br />
+    <%= f.label :title, t(:title) %><br />
     <%= f.text_field :title %>
   </div>
-  <div class="field">
-    <%= f.label t(:content) %><br />
+  <div class="field_text">
+    <%= f.label :content, t(:content) %><br />
     <%= f.cktext_area :content, :ckeditor => {:toolbar => 'Basic'} %>
   </div>
   <div class="actions">

@@ -216,6 +216,42 @@
     text-align: left;
     font-weight: bold;
   }
+  
+  form
+  {
+  }
+ 
+    form .field
+    {
+      width: 15em;
+      clear: both;  
+    }
+    
+    form .field input
+    {
+      width: 100%;
+      clear: both;
+    }
+    
+    form .field_login
+    {
+    }
+    
+    form .field_login input
+    {
+    }
+    
+    form .field_text
+    {
+    }
+    
+    form .field_text textarea
+    {
+    }
+    
+    form .actions
+    {
+    }
  
   .notice
   {
