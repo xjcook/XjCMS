@@ -5,7 +5,11 @@ class PagesController < ApplicationController
   # GET /pages
   # GET /pages.json
   def index
-    @pages = Page.all
+    if params[:locale] == "en"
+      @pages = Page.where(:locale_id => Locale.find_by_name("en"))
+    else
+      @pages = Page.where(:locale_id => Locale.find_by_name("sk"))
+    end
 
     respond_to do |format|
       format.html # index.html.erb

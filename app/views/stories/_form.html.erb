@@ -15,6 +15,10 @@
     <%= f.label :title, t(:title) %><br />
     <%= f.text_field :title %>
   </div>
+  <div class="field">
+    <%= f.label :locale, t(:language) %>
+    <%= collection_select(:story, :locale_id, Locale.all, :id, :language) %>
+  </div>
   <div class="field_text">
     <%= f.label :content, t(:content) %><br />
     <%= f.cktext_area :content, :ckeditor => {:toolbar => 'Basic'} %>

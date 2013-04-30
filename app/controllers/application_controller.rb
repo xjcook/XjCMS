@@ -25,7 +25,10 @@ class ApplicationController < ActionController::Base
   end
   
   def pages
-    @pages ||= Page.all
+    @pages ||= if params[:locale] == "en" 
+                    then Page.where(:locale_id => Locale.find_by_name("en")) 
+                    else Page.where(:locale_id => Locale.find_by_name("sk")) 
+                    end
   end
   
   def authorize!

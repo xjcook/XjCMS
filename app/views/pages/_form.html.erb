@@ -1,7 +1,7 @@
 <%= form_for(@page) do |f| %>
   <% if @page.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h2>
+      <h3><%= pluralize(@page.errors.count, "error") %> prohibited this page from being saved:</h3>
 
       <ul>
       <% @page.errors.full_messages.each do |msg| %>
@@ -14,6 +14,10 @@
   <div class="field">
     <%= f.label :title, t(:title) %><br />
     <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :locale, t(:language) %>
+    <%= collection_select(:page, :locale_id, Locale.all, :id, :language) %>
   </div>
   <div class="field_text">
     <%= f.label :content, t(:content) %><br />
