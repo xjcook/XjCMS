@@ -7,6 +7,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor/init
+//= require ckeditor/config
 //= require 5grid/config
 //= require 5grid/5grid.min
 //= require 5grid/5grid-ui.min
