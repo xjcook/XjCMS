@@ -10,9 +10,9 @@
 	  </div>
 	  <div class="actions">
 	    <%= submit_tag t(:login) %>
+	    <%= link_to t(:signup), signup_path %>
     </div>
 	<% end %>
-    <%= link_to t(:signup), signup_path %>
 <% else %>
     <%=t :logged_user %> <strong><%= current_user.login %></strong><br/>
     <%= link_to t(:settings), edit_user_path(current_user) %>

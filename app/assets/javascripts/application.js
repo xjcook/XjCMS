@@ -6,6 +6,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
-
 //= require ckeditor/init
+//= require 5grid/config
+//= require 5grid/5grid.min
+//= require 5grid/5grid-ui.min
+// require_tree . 

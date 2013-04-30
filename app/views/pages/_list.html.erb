@@ -1,0 +1,7 @@
+<h3><%=t :pages %></h3>
+
+<ul class="link-list">
+  <% pages.each do |page| %>
+    <li><%= link_to page.title, page %></li>
+  <% end %>
+</ul>

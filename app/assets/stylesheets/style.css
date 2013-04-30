@@ -203,3 +203,13 @@
 		{
 			border-top: none;
 		}
+		
+  .notice
+  {
+    border: 1px solid #38C3FF;
+    margin: 10px 0 15px 0;
+    padding: 0.5em 1em;
+    font-size: 1.3em;
+    letter-spacing: -1px;
+    color: #1d1d1d;
+  }

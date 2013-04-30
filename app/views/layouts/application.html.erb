@@ -5,10 +5,7 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag       "favicon.ico" %>
   <%= stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,latin-ext" %>
-  <%= javascript_include_tag "jquery-1.9.1.min.js" %>
-  <%= javascript_include_tag "config.js" %>
-  <%= javascript_include_tag "5grid.min.js" %>
-  <%= javascript_include_tag "5grid-ui.min.js" %>
+  <%= javascript_include_tag "application" %>
   <noscript>
     <%= stylesheet_link_tag  "5grid-noscript.css" %>
     <%= stylesheet_link_tag  "style.css" %>
@@ -33,9 +30,14 @@
                   <li><%= link_to t(:home), root_path %></li>
                   <li><%= link_to t(:pages), pages_path %></li>
                   <li><%= link_to t(:stories), stories_path %></li>
-                  <li><%= link_to t(:users), users_path %></li>
-                  <li><%= link_to t(:english), root_path(:locale => "en") %></li>
-                  <li><%= link_to t(:slovak), root_path(:locale => "sk") %></li>
+                  <% if is_admin? %>
+                    <li><%= link_to t(:users), users_path %></li>
+                  <% end %>
+                  <% if params[:locale] == "en" %>
+                    <li><%= link_to t(:slovak), root_path(:locale => "sk") %></li>
+                  <% else %>
+                    <li><%= link_to t(:english), root_path(:locale => "en") %></li>
+                  <% end %>
                 </ul>
               </nav>
             </div>
@@ -68,7 +70,13 @@
                   
                   <%= render 'sessions/form' %>
 
-                </section>                      
+                </section>      
+                
+                <section>
+                  
+                  <%= render 'pages/list' %>
+                  
+                </section>                
                     
             </div>
           </div>

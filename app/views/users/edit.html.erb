@@ -2,5 +2,7 @@
 
 <%= render 'form' %>
 
-<%= link_to t(:show), @user %> |
-<%= link_to t(:back), users_path %>
+<% if is_admin? %>
+  <%= link_to t(:show), @user %> |
+  <%= link_to t(:back), users_path %>
+<% end %>

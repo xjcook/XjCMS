@@ -1,7 +1,7 @@
-<h1><%=t :signup %></h1>
+<h2><%=t :signup %></h2>
 
 <%= render 'form' %>
 
-<% if has_right? %>
-    <%= link_to t(:back), pages_path %>
+<% if is_admin? %>
+    <%= link_to t(:back), users_path %>
 <% end %>
