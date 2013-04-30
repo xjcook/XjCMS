@@ -14,7 +14,7 @@
     </div>
 	<% end %>
 <% else %>
-    <%=t :logged_user %> <strong><%= current_user.login %></strong><br/>
-    <%= link_to t(:settings), edit_user_path(current_user) %>
+  <%=t :logged_user %> <strong><%= current_user.login %></strong><br/>
+  <%= link_to t(:editing_user), edit_user_path(current_user) %>
 	<%= button_to t(:logout), logout_path, :method => :delete %>
 <% end %>

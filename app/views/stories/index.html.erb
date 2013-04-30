@@ -1,7 +1,7 @@
 <h2><%=t :listing_stories %></h2>
 
 <% if has_right? %>
-    <%= link_to t(:new_story), new_story_path %>
+    <p><%= link_to t(:new_story), new_story_path %></p>
 <% end %>
 
 <% @stories.each do |story| %>
