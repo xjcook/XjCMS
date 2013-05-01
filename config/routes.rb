@@ -4,9 +4,11 @@ CMS::Application.routes.draw do
 
   scope "(:locale)", :locale => /en|sk/ do
     resources :sessions
-    resources :users      
-    resources :stories  
-    resources :pages
+    resources :users    
+    resources :pages  
+    resources :stories do
+      resources :comments 
+    end  
     
     controller :sessions do
       get 'login' => :new

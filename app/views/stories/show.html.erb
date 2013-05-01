@@ -8,4 +8,22 @@
       | <%= link_to t(:destroy), @story, confirm: t(:are_you_sure), method: :delete %>
     <% end %>
   </p>
+  
+  <h3><%=t :comments %></h3>
+  <%= render @story.comments %>
+  
+  <h3><%=t :add_comment %></h3>
+  <%= form_for([@story, @story.comments.build]) do |f| %>
+    <div class="field">
+      <%= f.label :author, t(:author) %><br />
+      <%= f.text_field :author %>
+    </div>
+    <div class="field">
+      <%= f.label :body, t(:comment) %><br />
+      <%= f.text_area :body %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
 </div>

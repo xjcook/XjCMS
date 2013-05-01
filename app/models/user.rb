@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
   belongs_to :role
   has_many :pages
   has_many :stories
+  has_many :comments
   has_secure_password   # also validates password
   attr_accessible :login, :email, :firstname, :lastname, :password, :password_confirmation
   attr_accessible :login, :email, :firstname, :lastname, :password, :password_confirmation, :role_id, :as => :admin

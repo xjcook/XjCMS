@@ -65,8 +65,8 @@ Story.create(:user => redactor,
   <p>Duis a turpis nisl, mollis semper risus. Ut massa neque, condimentum sed fringilla at, facilisis non magna. Suspendisse nec quam sapien, at facilisis orci. Nam rutrum commodo lacus, ut dapibus magna pretium eget. Aliquam at risus augue. Nam at dolor vitae urna mollis ullamcorper vitae a enim. Sed venenatis hendrerit iaculis. Praesent ac leo est.</p>}
 )
 Story.create(:user => redactor,
-  :locale => en,
-  :title => "Story Two",
+  :locale => sk,
+  :title => "Clanok Dva",
   :content => %{<p>
   Aenean pellentesque massa sed urna suscipit ut porttitor augue vestibulum. Phasellus vel justo quis libero dictum laoreet quis ac augue. Vivamus scelerisque pulvinar dictum. Mauris consectetur odio non mi viverra sed pellentesque risus tincidunt. Nulla facilisi. Nulla at purus sed magna pulvinar euismod id eget tortor. Integer id nulla enim, sit amet porttitor dui. Praesent felis erat, posuere sed cursus gravida, tincidunt ut lacus. Fusce quis mi urna, ut feugiat quam. Cras libero ligula, malesuada quis elementum a, convallis vel mi. Vivamus sollicitudin, ligula sed tristique gravida, purus lacus lobortis elit, nec luctus magna tortor quis purus. Etiam egestas urna dui, suscipit posuere sapien. Nam ornare purus a ipsum iaculis facilisis. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam neque nibh, gravida eget hendrerit cursus, ultricies a enim. Suspendisse eget egestas erat.</p>}
 )
