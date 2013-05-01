@@ -5,7 +5,7 @@
   </div>
 <% end %>
 
-<% unless @stories.nil? %>
+<% unless @stories.empty? %>
   <h2><%=t :stories %></h2>
   <% @stories.each do |story| %>
   	<div class="story">

@@ -18,7 +18,8 @@ class SessionsController < ApplicationController
       
       # redirect to previous page
       if session[:redirect_back].nil?
-        redirect_to :back, :notice => t(:logged_in)
+        #redirect_to :back, :notice => t(:logged_in)
+        redirect_to root_path, :notice => t(:logged_in)
       else
         redirect_to session[:redirect_back], :notice => t(:logged_in)
       end

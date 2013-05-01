@@ -4,7 +4,12 @@ class HomePageController < ApplicationController
 
   def index
     @page = Page.first
-    @stories = Story.order("created_at DESC").all
+    
+    if params[:locale] == "en"
+      @stories = Story.where(:locale_id => Locale.find_by_name("en")).order("created_at DESC")
+    else
+      @stories = Story.where(:locale_id => Locale.find_by_name("sk")).order("created_at DESC")
+    end
 
     respond_to do |format|
       format.html # index.html.erb

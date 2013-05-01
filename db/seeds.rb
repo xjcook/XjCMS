@@ -23,7 +23,7 @@ sk = Locale.create(:name => "sk", :language => "Slovak")
 admin = Role.create(:name => "admin")
 redactor = Role.create(:name => "redactor")
 user = Role.create(:name => "user")
-guest = Role.create(:name => "guest")
+#guest = Role.create(:name => "guest")
 
 admin.permissions.create(:hero => true, :pages => true, :stories => true, :comments => true, :users => true)
 redactor.permissions.create(:hero => true, :pages => false, :stories => true, :comments => true, :users => false)
