@@ -1,6 +1,6 @@
 <h2><%=t :listing_stories %></h2>
 
-<% if has_right? %>
+<% if has_right?(:section => :stories) %>
     <p><%= link_to t(:new_story), new_story_path %></p>
 <% end %>
 
@@ -9,7 +9,7 @@
     <%= (Truncato.truncate story.content, :max_length => 300).html_safe %>
     <p>
       <em><%= story.user.author %></em>
-      <% if has_right?(:id => story.id) %>
+      <% if has_right?(:section => :stories, :id => story.id) %>
         | <%= link_to t(:edit), edit_story_path(story) %>
         | <%= link_to t(:destroy), story, confirm: t(:are_you_sure), method: :delete %>
       <% end %>

@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   helper_method :has_right?
   helper_method :is_admin?
   before_filter :set_locale
-  before_filter :authorize!
+  #before_filter :authorize!
   
   private
   
@@ -31,8 +31,8 @@ class ApplicationController < ActionController::Base
                     end
   end
   
-  def authorize!
-    if has_right?
+  def authorize!(options={})
+    if has_right?(options)
       return true
     else
       if current_user.nil?
@@ -71,46 +71,61 @@ class ApplicationController < ActionController::Base
       # if user is hero can edit foreign posts
       hero_right = current_user.role.permissions.where(:hero => true).exists?
       
-      case params[:controller]
-        when "pages"
-          pages_right = current_user.role.permissions.where(:pages => true).exists?
-          
-          if pages_right
-            if hero_right || id.nil? 
-              return true
-            elsif Page.find(id).user.id == current_user.id
-              return true
-            end
-          end
-        when "stories"
-          stories_right = current_user.role.permissions.where(:stories => true).exists?
-          
-          if stories_right
-            if hero_right || id.nil?
-              return true
-            elsif Story.find(id).user.id == current_user.id
-              return true
-            end
-          end
-        when "comments"
-          comments_right = current_user.role.permissions.where(:comments => true).exists?
-          
-          if comments_right
-            if hero_right || id.nil? 
-              return true
-            elsif Comment.find(id).user.id == current_user.id
-              return true
-            end
-          end
-        # if user is admin (hero+users) or id is equal to current user
-        when "users"
-          users_right = current_user.role.permissions.where(:users => true).exists?
-          
-          if users_right && hero_right
+      case options[:section]
+      when :pages
+        pages_right = current_user.role.permissions.where(:pages => true).exists?
+        
+        if pages_right
+          if hero_right || id.nil? 
             return true
-          elsif id != nil && User.find(id).id == current_user.id
+          elsif Page.find(id).user.id == current_user.id
             return true
           end
+        end
+      when :stories
+        logger.debug "-----------has_right?(stories)--------------"
+        logger.debug "params[:controller] = " + params[:controller]
+        logger.debug "params[:action] = " + params[:action]
+        logger.debug "--------------------------------------------"
+        
+        stories_right = current_user.role.permissions.where(:stories => true).exists?
+        comments_right = current_user.role.permissions.where(:comments => true).exists?
+        
+        if stories_right
+          if hero_right || id.nil?
+            return true
+          elsif Story.find(id).user.id == current_user.id
+            return true
+          end
+        end
+      when :comments
+        logger.debug "-----------has_right?(comments)-------------"
+        logger.debug "params[:controller] = " + params[:controller]
+        logger.debug "params[:action] = " + params[:action]
+        logger.debug "--------------------------------------------"
+        
+        comments_right = current_user.role.permissions.where(:comments => true).exists?
+        
+        if comments_right
+          if hero_right || id.nil? 
+            return true
+          else
+            comment = Comment.find(id)
+            
+            if !comment.user.nil?
+              return comment.user.id == current_user.id
+            end                        
+          end
+        end
+      # if user is admin (hero+users) or id is equal to current user
+      when :users
+        users_right = current_user.role.permissions.where(:users => true).exists?
+        
+        if users_right && hero_right
+          return true
+        elsif id != nil && User.find(id).id == current_user.id
+          return true
+        end
       else
         return false
       end 

@@ -1,6 +1,16 @@
 # -*- encoding : utf-8 -*-
 class UsersController < ApplicationController
-  skip_before_filter :authorize!, :only => [:new, :create]
+  #skip_before_filter :authorize!, :only => [:new, :create]
+  before_filter do |c|
+    c.class.module_eval do
+    private
+      def authorize
+        authorize!(:section => :users)
+      end
+    end
+  end
+  
+  before_filter :authorize, :except => [:new, :create]
   
   def index
     @users = User.all

@@ -1,6 +1,16 @@
 # -*- encoding : utf-8 -*-
 class PagesController < ApplicationController
-  skip_before_filter :authorize!, :only => [:index, :show]
+  #skip_before_filter :authorize!, :only => [:index, :show]
+  before_filter do |c|
+    c.class.module_eval do
+    private
+      def authorize
+        authorize!(:section => :pages)
+      end
+    end
+  end
+  
+  before_filter :authorize, :except => [:index, :show]
   
   # GET /pages
   # GET /pages.json

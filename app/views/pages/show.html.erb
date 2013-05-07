@@ -1,7 +1,7 @@
 <div class="page">
   <h2><%= @page.title %></h2>
   <%= @page.content.html_safe %>
-  <% if has_right?(:id => @page.id) %>
+  <% if has_right?(:section => :pages, :id => @page.id) %>
     <p>
       <em><%= @page.user.author %></em>
       | <%= link_to t(:edit), edit_page_path(@page) %>

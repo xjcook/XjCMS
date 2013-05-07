@@ -3,7 +3,7 @@
   <%= comment.author %><br/>
   <strong>Comment:</strong>
   <%= comment.body %><br/>
-  <% if has_right?(:id => comment.id) %>
+  <% if has_right?(:section => :comments, :id => comment.id) %>
     <%= link_to t(:destroy), [comment.story, comment], confirm: t(:are_you_sure), method: :delete %>
   <% end %>
 </p>
