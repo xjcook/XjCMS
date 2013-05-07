@@ -60,10 +60,10 @@ class ApplicationController < ActionController::Base
       # if we have right then return true, else redirect to root_path and return false
       
       # set post id
-      if !params[:id].nil? 
-        id = params[:id]
-      elsif !options[:id].nil?
+      if !options[:id].nil?
         id = options[:id]
+      elsif !params[:id].nil?
+        id = params[:id]
       else
         id = nil
       end

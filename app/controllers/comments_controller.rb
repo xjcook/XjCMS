@@ -10,4 +10,15 @@ class CommentsController < ApplicationController
       format.json { render json: @story, status: :created, location: @comment }
     end
   end
+  
+  def destroy
+    @story = Story.find(params[:story_id])
+    @comment = @story.comments.find(params[:id])
+    @comment.destroy
+
+    respond_to do |format|
+      format.html { redirect_to @story, notice: t(:comment_deleted) }
+      format.json { render json: @story, status: :deleted }
+    end
+  end
 end
