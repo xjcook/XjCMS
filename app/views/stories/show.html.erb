@@ -15,8 +15,14 @@
   <h3><%=t :add_comment %></h3>
   <%= form_for([@story, @story.comments.build]) do |f| %>
     <div class="field">
-      <%= f.label :author, t(:author) %><br />
-      <%= f.text_field :author %>
+      <% if current_user.nil? %>
+        <%= f.label :author, t(:author) %><br />
+        <%= f.text_field :author %>
+      <% else %>
+        <%= f.label :author, current_user.login %>
+        <%= f.hidden_field :author, :value => current_user.author %>    
+        <%= f.hidden_field :user_id, :value => current_user.id %>    
+      <% end %>
     </div>
     <div class="field">
       <%= f.label :body, t(:comment) %><br />
