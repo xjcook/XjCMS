@@ -19,13 +19,12 @@
         <%= f.label :author, t(:author) %><br />
         <%= f.text_field :author %>
       <% else %>
-        <!--<%= f.label :author, current_user.author %>-->
         <%= f.hidden_field :author, :value => current_user.author %>    
         <%= f.hidden_field :user_id, :value => current_user.id %>    
       <% end %>
     </div>
     <div class="field">
-      <!--<%= f.label :body, t(:comment) %><br />-->
+      <%= f.label :body, t(:comment) %><br />
       <%= f.text_area :body %>
     </div>
     <div class="actions">
