@@ -12,3 +12,4 @@ srs/*~
 srs/srs*.png
 latest.zip
 public/assets/*
+config/database.yml
