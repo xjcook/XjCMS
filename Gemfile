@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.13'
+gem 'rails', '~> 3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
@@ -18,31 +18,39 @@ group :test do
   gem 'turn', :require => false
 end
 
+# Deploy with Capistrano
+group :development do
+  gem 'capistrano'
+  gem 'rvm-capistrano'
+end
+
 # Database
-gem 'pg'
-#gem 'hairtrigger'
+gem 'pg', '~> 0.15.1'
+#gem 'hairtrigger', '~> 0.2.3'
 
-gem 'jquery-rails'
-gem 'execjs'
-#gem 'therubyracer'
+# jQuery
+gem 'jquery-rails', '>= 2.2.1'
 
+# JavaScript runtime
+gem 'execjs', '>= 1.4.0'
+gem 'therubyracer', '>= 0.11.4'
+
+# Easily add magic comments for encoding on multiple ruby source files
 gem 'magic_encoding'
 
-# ck editor
-gem 'paperclip'
-gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
+# CK Editor
+gem 'paperclip', '~> 3.4.1'
+gem 'ckeditor', '~> 4.0.4'
+#gem 'ckeditor', :git => 'https://github.com/galetahub/ckeditor'
 
-# truncate html
-gem 'truncato'
+# Truncate html
+gem 'truncato', '>= 0.7.5'
 
 # To use ActiveModel has_secure_password
 gem 'bcrypt-ruby', '~> 3.0.0'
 
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
+# Web server
+gem 'passenger', '>= 4.0.2'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'

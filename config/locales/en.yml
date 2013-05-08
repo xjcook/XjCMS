@@ -1,63 +1,76 @@
 en:
-  hello: "Hello world"
-  role: "Role"
-  admin: "administrator"
-  user: "user"
+  #  project:
   cms: "Content management system"
   year_project: "Year's project"
   copyright: "All rights reserved."
-  home: "Home"
+  
+  #  page:
   pages: "Pages"
-  stories: "Stories"
-  signup: "Signup"
-  login: "Login"
-  login_form: "User"
-  login_heading: "Log In"
-  logout: "Logout"
-  password: "Password"
-  logged_user: "You are logged as"
-  logged_in: "Logged in"
-  logged_out: "Logged out"
-  invalid_login: "Invalid email or password"
-  please_login: "Please login"
-  wrong_rights: "You don't have rights"
-  signed_up: "Succesfully signed up"
-  signed_already: "You are already signed!"
   page_created: "Page was successfully created."
   page_updated: "Page was successfully updated."
+  new_page: "New page"
+  listing_pages: Listing pages
+  editing_page: Editing page
+
+  #  story:
+  stories: "Stories"
   story_created: "Story was successfully created."
   story_updated: "Story was successfully updated."
-  new_page: "New page"
   new_story: "New story"
+  listing_stories: Listing stories
+  editing_story: Editing story
+
+  #  user:
+  user: "user"
+  users: Users
+  user_created: "Successfully created"
+  user_updated: "Successfully updated" 
+  new_user: "New user" 
+  loginname: "Login"
+  firstname: "Firstname"
+  lastname: "Lastname"
+  email: "E-mail"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  submit_user: "Register"
+  listing_users: "Listing users"
+  editing_user: "Editing user"
+  signup: "Signup"
+  signed_up: "Succesfully signed up"
+  signed_already: "You are already signed!"
+
+  #  session:
+  login: "Login"
+  logout: "Logout"
+  login_form: "User"
+  login_heading: "Log In"
+  logged_user: "You are logged as"
+  logged_in: "Logged in"
+  logged_out: "Logged out"  
+  invalid_login: "Invalid email or password"
+  please_login: "Please login"  
+  wrong_rights: "You don't have rights"
+    
+  #  language:
+  english: English
+  slovak: Slovenčina
+    
+  #  role:  
+  role: "Role"
+  admin: "administrator"
+    
+  #  format:
+  date_format: "%Y-%m-%d"
+  
+  home: "Home"
   edit: "Edit"
   destroy: "Destroy"
   are_you_sure: "Are you sure?"
   show: "Show"
   back: "Back"
-  submit_user: "Register"
-  password_confirmation: "Password confirmation"
-  firstname: "Firstname"
-  lastname: "Lastname"
-  loginname: "Login"
-  user_created: "Successfully created"
-  user_updated: "Successfully updated"
-  date_format: "%Y-%m-%d"
-  email: "E-mail"
-  listing_users: "Listing users"
-  editing_user: "Editing user"
-  new_user: "New user"
   created: Created
   action: Action
   name: Name
-  users: Users
   settings: Settings
-  english: English
-  slovak: Slovenčina
-  listing_stories: Listing stories
-  editing_story: Editing story
-  new_story: New story
-  listing_pages: Listing pages
-  editing_page: Editing page
-  new_page: New page
   title: Title
   content: Content

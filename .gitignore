@@ -11,3 +11,4 @@ srs/*.backup
 srs/*~
 srs/srs*.png
 latest.zip
+public/assets/*

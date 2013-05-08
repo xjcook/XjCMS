@@ -5,14 +5,13 @@
   <%= csrf_meta_tags %>
   <%= favicon_link_tag       "favicon.ico" %>
   <%= stylesheet_link_tag    "http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,300italic,700&subset=latin,latin-ext" %>
+  <!--<%= stylesheet_link_tag    "application" %>-->
   <%= javascript_include_tag "application" %>
   <noscript>
-    <%= stylesheet_link_tag  "5grid-noscript.css" %>
-    <%= stylesheet_link_tag  "style.css" %>
-    <%= stylesheet_link_tag  "style-desktop.css" %>
+    <%= stylesheet_link_tag  "noscript" %>
   </noscript>
-  <!--[if lte IE 9]><%= stylesheet_link_tag "style-i9.css" %><![endif]-->
-  <!--[if lte IE 8]><%= javascript_include_tag "html5shiv.js" %><![endif]-->
+  <!--[if lte IE 9]><%= stylesheet_link_tag "style-i9" %><![endif]-->
+  <!--[if lte IE 8]><%= javascript_include_tag "html5shiv" %><![endif]-->
 </head>
 <body>
   
