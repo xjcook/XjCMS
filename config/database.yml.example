@@ -5,23 +5,22 @@ development:
   encoding: unicode
   database: cms_development
   pool: 5
-  username: xj
-  password: lodenice
+  username: example
+  password: example
   
 production:
   adapter: postgresql
   encoding: unicode
   database: cms_production
   pool: 5
-  username: xj
-  password: lodenice
+  username: example
+  password: example
   
 test:
   adapter: postgresql
   encoding: unicode
   database: cms_test
   pool: 5
-  username: xj
-  password: lodenice  
-
+  username: example
+  password: example  
 
