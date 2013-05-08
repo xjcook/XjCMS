@@ -34,8 +34,8 @@ namespace :deploy do
   end
 end
 
-# Skip asset compilation if unneeded
-namespace :deploy do
+# Make smart asset precompilation
+xnamespace :deploy do
   namespace :assets do
     task :precompile, :roles => :web, :except => { :no_release => true } do
       from = source.next_revision(current_revision)
