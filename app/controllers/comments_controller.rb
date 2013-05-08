@@ -12,11 +12,6 @@ class CommentsController < ApplicationController
   before_filter :authorize, :except => :create
   
   def create
-    logger.debug "-----------Comments#create------------------"
-    logger.debug "params[:controller] = " + params[:controller]
-    logger.debug "params[:action] = " + params[:action]
-    logger.debug "--------------------------------------------"
-          
     @story = Story.find(params[:story_id])
     @comment = @story.comments.create(params[:comment])
     
@@ -27,11 +22,6 @@ class CommentsController < ApplicationController
   end
   
   def destroy
-    logger.debug "-----------Comments#destroy-----------------"
-    logger.debug "params[:controller] = " + params[:controller]
-    logger.debug "params[:action] = " + params[:action]
-    logger.debug "--------------------------------------------"
-    
     @story = Story.find(params[:story_id])
     @comment = @story.comments.find(params[:id])
     @comment.destroy

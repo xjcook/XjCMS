@@ -51,7 +51,13 @@ en:
   please_login: "Please login"  
   wrong_rights: "You don't have rights"
     
+  #  comments:
+  comment: Comment
+  comment_created: Comment was successfully created.
+  comment_deleted: Comment was successfully deleted.
+    
   #  language:
+  language: Language
   english: English
   slovak: Slovenčina
     
@@ -74,3 +80,4 @@ en:
   settings: Settings
   title: Title
   content: Content
+  author: Author  

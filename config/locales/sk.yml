@@ -51,8 +51,6 @@ sk:
   name: Meno
   users: Používatelia
   settings: Nastavenia
-  english: English
-  slovak: Slovenčina
   listing_stories: Zoznam článkov
   editing_story: Úprava článku
   new_story: Nový článok
@@ -61,3 +59,16 @@ sk:
   new_page: Nová stránka
   title: Názov
   content: Obsah
+  author: Autor
+  
+  #  comments:
+  comment: Komentár
+  comment_created: Komentár bol úspešne vytvorený.
+  comment_deleted: Komentár bol úspešne vymazaný.
+  
+  #  language:
+  language: Jazyk
+  english: English
+  slovak: Slovenčina
+  
+  

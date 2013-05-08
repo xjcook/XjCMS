@@ -206,6 +206,12 @@
 		
   /* by XjCook */
  
+  strong
+  {
+    font-size: 120%;
+    /*font-weight: bold !important;*/
+  }
+ 
   table 
   {
     width: 100%;

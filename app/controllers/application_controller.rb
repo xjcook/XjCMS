@@ -83,11 +83,6 @@ class ApplicationController < ActionController::Base
           end
         end
       when :stories
-        logger.debug "-----------has_right?(stories)--------------"
-        logger.debug "params[:controller] = " + params[:controller]
-        logger.debug "params[:action] = " + params[:action]
-        logger.debug "--------------------------------------------"
-        
         stories_right = current_user.role.permissions.where(:stories => true).exists?
         comments_right = current_user.role.permissions.where(:comments => true).exists?
         
@@ -99,11 +94,6 @@ class ApplicationController < ActionController::Base
           end
         end
       when :comments
-        logger.debug "-----------has_right?(comments)-------------"
-        logger.debug "params[:controller] = " + params[:controller]
-        logger.debug "params[:action] = " + params[:action]
-        logger.debug "--------------------------------------------"
-        
         comments_right = current_user.role.permissions.where(:comments => true).exists?
         
         if comments_right
