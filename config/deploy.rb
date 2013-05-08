@@ -25,7 +25,7 @@ server "xjcook.net", :app, :web, :db, :primary => true
 # role :db,  "your slave db-server here"
 
 # make database migrations after deploy
-after 'deploy:update_code', 'deploy:migrate'
+#after 'deploy:update_code', 'deploy:migrate'
 
 # if you want to clean up old releases on each deploy uncomment this:
 set :keep_releases, 5
@@ -40,5 +40,15 @@ namespace :deploy do
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+  end
+end
+
+# Make symlink to database.yml
+after 'deploy:update_code', 'deploy:symlink_db'
+
+namespace :deploy do
+  desc "Symlinks the database.yml"
+  task :symlink_db, :roles => :app do
+    run "ln -nfs #{deploy_to}/shared/config/database.yml #{release_path}/config/database.yml"
   end
 end
