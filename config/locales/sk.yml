@@ -63,12 +63,12 @@ sk:
   
   #  comments:
   comment: Komentár
+  comments: Komentáre
   comment_created: Komentár bol úspešne vytvorený.
   comment_deleted: Komentár bol úspešne vymazaný.
+  add_comment: Pridať komentár
   
   #  language:
   language: Jazyk
   english: English
   slovak: Slovenčina
-  
-  

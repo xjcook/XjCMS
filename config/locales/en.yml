@@ -53,8 +53,10 @@ en:
     
   #  comments:
   comment: Comment
+  comments: Comments
   comment_created: Comment was successfully created.
   comment_deleted: Comment was successfully deleted.
+  add_comment: Add comment
     
   #  language:
   language: Language
